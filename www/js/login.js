@@ -33,6 +33,7 @@ function MainController($timeout, $localStorage) {
           vm.fbData = authData;
         });
       }
+      
     });
   }
   function googleLogin() {
