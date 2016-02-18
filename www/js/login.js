@@ -13,12 +13,13 @@ function MainController($timeout, $localStorage) {
   var vm = this;
   vm.facebookLogin = facebookLogin;
   vm.googleLogin = googleLogin;
-  vm.deleteFacebookData = deleteFacebookData;
+  //vm.deleteFacebookData = deleteFacebookData;
   vm.fbData = $localStorage['firebase:session::musiquality'];
   // if facebook data is found in local storage, use it
   vm.message = vm.fbData && vm.fbData.facebook ? "Logged in to Facebook." : "No Facebook data found.";
   // IMPORTANT: change to match the URL of your Firebase.
   var url = 'https://musiquality.firebaseio.com/';
+
   // use Firebase library to login to facebook
   function facebookLogin() {
     var ref = new Firebase(url);
@@ -32,10 +33,12 @@ function MainController($timeout, $localStorage) {
         $timeout(function() { // invokes $scope.$apply()
           vm.fbData = authData;
         });
+        vm.loggedIn = true;
       }
-      
+
     });
   }
+
   function googleLogin() {
     var ref = new Firebase(url);
     ref.authWithOAuthPopup('google', function (error, authData) {
@@ -48,16 +51,17 @@ function MainController($timeout, $localStorage) {
         $timeout(function() { // invokes $scope.$apply()
           vm.fbData = authData;
         });
+        vm.loggedIn = true;
       }
     });
   }
   // this removes facebook data from local storage
   // to FULLY logout, you MUST go to facebook.com and logout
-  function deleteFacebookData() {
-    $localStorage.$reset();
-    vm.fbData = {};
-    vm.message = 'Facebook data deleted.';
-  }
+  //function deleteFacebookData() {
+  //  $localStorage.$reset();
+  //  vm.fbData = {};
+  //  vm.message = 'Facebook data deleted.';
+  //}
   // bug alert: this delete function sometimes does NOT reset the local storage,
   // so a page refresh finds facebook data in localstorage.
 }
