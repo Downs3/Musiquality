@@ -1,15 +1,27 @@
-<ion-view title="Song Title Search">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+<ion-view title="Song Title Name Search">
+    <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="TitleController as tc">
         <form class="list">
             <label class="item item-input">
-                <span class="input-label">Input</span>
-                <input type="text" placeholder="">
+                <!--<span class="input-label">Input</span>-->
+                <input type="text" placeholder="Type Song Title Name" ng-model="tc.song">
+
             </label>
+            <br>
+            <br>
+
+            <button type="submit" ng-click="tc.songTitleSearch(tc.song)">Search</button>
+
+
+            
+            <br/>
+            <image src="{{tc.results}}"></image>
         </form>
         <ion-list>
-            <ion-item ui-sref="tabsController.artistHome">Song 1</ion-item>
-            <ion-item ui-sref="tabsController.artistHome">Song 2</ion-item>
-            <ion-item ui-sref="tabsController.artistHome">Song 3</ion-item>
+            <ion-item ui-sref="tabsController.artistHome">Song Title 1</ion-item>
+            <ion-item ui-sref="tabsController.artistHome">Song Title 2</ion-item>
+            <ion-item ui-sref="tabsController.artistHome">Song Title 3</ion-item>
+
+
         </ion-list>
     </ion-content>
 </ion-view>

@@ -4,13 +4,16 @@
       <label class="item item-input">
         <!--<span class="input-label">Input</span>-->
         <input type="text" placeholder="Type Artist Name" ng-model="nc.artist">
-        <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
 
       </label>
+        <br>
+        <br>
 
-      <div>{{nc.results | json}}</div>
+        <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
+
+
+        <div>{{nc.results | json}}</div>
       <br/>
-      <a href="{{nc.found}}">Result</a>
 
       <image src="{{nc.results}}"></image>
     </form>
