@@ -116,7 +116,7 @@ angular.module('app.routes', [])
       url: '/page19',
       views: {
         'tab1': {
-          templateUrl: 'templates/musiqGenreSearch.html',
+          templateUrl: 'templates/relatedArtistSearch.html',
           controller: 'musiqGenreSearchCtrl'
         }
       }

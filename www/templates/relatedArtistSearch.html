@@ -1,0 +1,27 @@
+<ion-view title="Artist Name Search">
+    <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="RelatedArtistController as rc">
+        <form class="list">
+            <label class="item item-input">
+                <!--<span class="input-label">Input</span>-->
+                <input type="text" placeholder="Type Artist Name" ng-model="rc.artist">
+                <button type="submit" ng-click="rc.artistSearch(rc.artist)">Search</button>
+
+            </label>
+
+            <div>{{rc.results | json}}</div>
+            <div ng-if="rc.artistKey !== ''"> {{ rc.secondResults }}</div>
+            <br/>
+            <a href="{{rc.found}}">Result</a>
+            {{ rc.artistKey }}
+
+            <image src="{{rc.results}}"></image>
+        </form>
+        <ion-list>
+            <ion-item ui-sref="tabsController.artistHome">Artist 1</ion-item>
+            <ion-item ui-sref="tabsController.artistHome">Artist 2</ion-item>
+            <ion-item ui-sref="tabsController.artistHome">Artist 3</ion-item>
+
+
+        </ion-list>
+    </ion-content>
+</ion-view>
