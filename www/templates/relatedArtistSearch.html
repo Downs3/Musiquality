@@ -8,13 +8,19 @@
 
             </label>
 
-            <div>{{rc.results | json}}</div>
-            <div ng-if="rc.artistKey !== ''"> {{ rc.secondResults }}</div>
+            <div ng-repeat="artist in rc.artistArray">
+                <p ui-sref="tabsController.artistHome">{{artist.name}}</p>
+                <p ui-sref="tabsController.artistHome">{{"Popularity " + artist.popularity}}</p>
+                <image src="{{artist.images[1].url}}" ui-sref="tabsController.artistHome"></image>
+                <!--<p>{{rc.artistName}}</p>-->
+                <!--<p>{{"Popularity: " + rc.artistPopularity}}</p>-->
+            </div>
+
             <br/>
-            <a href="{{rc.found}}">Result</a>
+           <!-- <a href="{{rc.found}}">Result</a>
             {{ rc.artistKey }}
 
-            <image src="{{rc.results}}"></image>
+            <image src="{{rc.results}}"></image>-->
         </form>
         <ion-list>
             <ion-item ui-sref="tabsController.artistHome">Artist 1</ion-item>

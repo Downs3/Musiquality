@@ -6,23 +6,36 @@
         <input type="text" placeholder="Type Artist Name" ng-model="nc.artist">
 
       </label>
-        <br>
-        <br>
+      <br>
 
-        <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
+      <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
 
-
-        <div>{{nc.results | json}}</div>
       <br/>
 
       <image src="{{nc.results}}"></image>
     </form>
-    <ion-list>
-      <ion-item ui-sref="tabsController.artistHome">Artist 1</ion-item>
-      <ion-item ui-sref="tabsController.artistHome">Artist 2</ion-item>
-      <ion-item ui-sref="tabsController.artistHome">Artist 3</ion-item>
 
+      <div ui-sref="tabsController.artistHome">Go to the {{nc.found}} page.</div>
+    <br/>
+    <a href="{{nc.news}}">News</a>
+    <br/>
+    <a href="{{nc.bio}}">Wiki</a>
+    <br/>
+    <a href="{{nc.track1}}" target="blank">{{nc.track1Name}}</a>
+      <a href="{{nc.purchase1}}" target="blank">   Purchase Track</a><br/>
+    <a href="{{nc.track2}}" target="blank">{{nc.track2Name}}</a>
+      <a href="{{nc.purchase2}}" target="blank">   Purchase Track</a><br/>
+    <a href="{{nc.track3}}" target="blank">{{nc.track3Name}}</a>
+      <a href="{{nc.purchase3}}" target="blank">   Purchase Track</a>
+<!--<div ng-click="nc.songPlay(nc.artist)">Testing Song</div>-->
 
-    </ion-list>
+    <!--<ion-list>-->
+      <!--<ion-item ui-sref="tabsController.artistBiography">Biography</ion-item>-->
+      <!--<ion-item href="#" onclick="window.open('http://www.billboard.com/search/site/{{nc.found}}?f[0]=ss_bb_type%3Aarticle'); return false;">News</ion-item>-->
+      <!--<ion-item href="#" onclick="window.open('{{nc.news}}', '_system', 'location=yes'); return false;">News</ion-item>-->
+      <!--<ion-item href="#" onclick="window.open('http://www.azlyrics.com/', '_system', 'location=yes'); return false;">Lyrics</ion-item>-->
+      <!--<ion-item href="#" onclick="window.open('http://www.amazon.com/', '_system', 'location=yes'); return false;">Purchase</ion-item>-->
+    <!--</ion-list>-->
+
   </ion-content>
 </ion-view>
