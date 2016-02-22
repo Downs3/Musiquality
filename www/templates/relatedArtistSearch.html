@@ -1,3 +1,4 @@
+
 <ion-view title="Artist Name Search">
     <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="RelatedArtistController as rc">
         <form class="list">
@@ -8,13 +9,23 @@
 
             </label>
 
-            <div ng-repeat="artist in rc.artistArray">
-                <p ui-sref="tabsController.artistHome">{{artist.name}}</p>
-                <p ui-sref="tabsController.artistHome">{{"Popularity " + artist.popularity}}</p>
-                <image src="{{artist.images[1].url}}" ui-sref="tabsController.artistHome"></image>
+            <ul class="list" ng-repeat="artist in rc.artistArray">
+                <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome">
+                    <image class="rcImg" src="{{artist.images[1].url}}"></image>
+                    <span class="rcArtistName">{{artist.name}}</span> <br>
+                    {{"Popularity " + artist.popularity}} <br>
+                    {{"Genre: " + artist.genres[0]}}
+                </li>
+                <!--<ul class="list" ng-repeat="artist in rc.artistArray">
+                <li class="item" ui-sref="tabsController.artistHome">{{artist.name}}</li>
+                <li class="item" ui-sref="tabsController.artistHome">{{"Popularity " + artist.popularity}}</li>
+                <li class="item"><image src="{{artist.images[1].url}}" ui-sref="tabsController.artistHome"></image></li>
                 <!--<p>{{rc.artistName}}</p>-->
                 <!--<p>{{"Popularity: " + rc.artistPopularity}}</p>-->
-            </div>
+            </ul>
+                <p>{{rc.artistName}}</p>-->
+                <!--<p>{{"Popularity: " + rc.artistPopularity}}</p>-->
+            </ul>
 
             <br/>
            <!-- <a href="{{rc.found}}">Result</a>
