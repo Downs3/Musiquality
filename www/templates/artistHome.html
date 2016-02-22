@@ -1,10 +1,32 @@
 <ion-view title="Artist Home">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list>
-            <ion-item ui-sref="tabsController.artistBiography">Biography</ion-item>
-            <ion-item href="#" onclick="window.open('http://www.rollingstone.com/music', '_system', 'location=yes'); return false;">News</ion-item>
-            <ion-item href="#" onclick="window.open('http://www.azlyrics.com/', '_system', 'location=yes'); return false;">Lyrics</ion-item>
-            <ion-item href="#" onclick="window.open('http://www.amazon.com/', '_system', 'location=yes'); return false;">Purchase</ion-item>
-        </ion-list>
-    </ion-content>
+  <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="ArtistHomeController as ah">
+    <form class="list">
+
+      <image src="{{ah.results}}"></image>
+    </form>
+
+    <div ui-sref="tabsController.artistHome">Go to the {{ah.found}} page.</div>
+    <br/>
+    <a href="{{ah.news}}">News</a>
+    <br/>
+    <a href="{{ah.bio}}">Wiki</a>
+    <br/>
+    <a href="{{ah.track1}}" target="blank">{{ah.track1Name}}</a>
+    <a href="{{ah.purchase1}}" target="blank">   Purchase Track</a><br/>
+    <a href="{{ah.track2}}" target="blank">{{ah.track2Name}}</a>
+    <a href="{{ah.purchase2}}" target="blank">   Purchase Track</a><br/>
+    <a href="{{ah.track3}}" target="blank">{{ah.track3Name}}</a>
+    <a href="{{ah.purchase3}}" target="blank">   Purchase Track</a>
+
+    <!--<div ng-click="nc.songPlay(nc.artist)">Testing Song</div>-->
+
+    <ion-list>
+    <ion-item ui-sref="tabsController.artistBiography">Biography</ion-item>
+    <ion-item href="#" onclick="window.open('http://www.billboard.com/search/site/{{nc.found}}?f[0]=ss_bb_type%3Aarticle'); return false;">News</ion-item>
+    <ion-item href="#" ng-click="$window.open('{{nc.news}}', '_blank', 'location=yes'); return false;">News</ion-item>
+    <ion-item href="#" onclick="window.open('http://www.azlyrics.com/', '_system', 'location=yes'); return false;">Lyrics</ion-item>
+    <ion-item href="#" onclick="window.open('http://www.amazon.com/', '_blank', 'location=yes'); return false;">Purchase</ion-item>
+    </ion-list>
+
+  </ion-content>
 </ion-view>

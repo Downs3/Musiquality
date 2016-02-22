@@ -15,27 +15,33 @@
       <image src="{{nc.results}}"></image>
     </form>
 
-      <div ui-sref="tabsController.artistHome">Go to the {{nc.found}} page.</div>
+    <h2 ui-sref="tabsController.artistHome">GO TO THE "{{nc.found}}" PAGE.</h2>
     <br/>
-    <a href="{{nc.news}}">News</a>
-    <br/>
-    <a href="{{nc.bio}}">Wiki</a>
-    <br/>
-    <a href="{{nc.track1}}" target="blank">{{nc.track1Name}}</a>
-      <a href="{{nc.purchase1}}" target="blank">   Purchase Track</a><br/>
-    <a href="{{nc.track2}}" target="blank">{{nc.track2Name}}</a>
-      <a href="{{nc.purchase2}}" target="blank">   Purchase Track</a><br/>
-    <a href="{{nc.track3}}" target="blank">{{nc.track3Name}}</a>
-      <a href="{{nc.purchase3}}" target="blank">   Purchase Track</a>
-<!--<div ng-click="nc.songPlay(nc.artist)">Testing Song</div>-->
 
-    <!--<ion-list>-->
+    <h2>BAND TRACKS</h2>
+    <ion-list>
+      <ion-item href="#" ng-click="nc.outsidePage(nc.track1)">{{nc.track1Name}}</ion-item>
+    </ion-list>
+    <a href="#" ng-click="nc.outsidePage(nc.lyrics1)">Track Lyrics</a>
+    <a href="#" ng-click="nc.outsidePage(nc.purchase1)">Purchase Track</a>
+    <ion-list>
+      <ion-item href="#" ng-click="nc.outsidePage(nc.track2)">{{nc.track2Name}}</ion-item>
+    </ion-list>
+    <a href="#" ng-click="nc.outsidePage(nc.lyrics2)">Track Lyrics</a>
+    <a href="#" ng-click="nc.outsidePage(nc.purchase2)">Purchase Track</a><ion-list>
+    <ion-item href="#" ng-click="nc.outsidePage(nc.track3)">{{nc.track3Name}}</ion-item>
+  </ion-list>
+    <a href="#" ng-click="nc.outsidePage(nc.lyrics3)">Track Lyrics</a>
+    <a href="#" ng-click="nc.outsidePage(nc.purchase3)">Purchase Track</a>
+
+    <h2>BAND INFO</h2>
+    <ion-list>
       <!--<ion-item ui-sref="tabsController.artistBiography">Biography</ion-item>-->
-      <!--<ion-item href="#" onclick="window.open('http://www.billboard.com/search/site/{{nc.found}}?f[0]=ss_bb_type%3Aarticle'); return false;">News</ion-item>-->
-      <!--<ion-item href="#" onclick="window.open('{{nc.news}}', '_system', 'location=yes'); return false;">News</ion-item>-->
-      <!--<ion-item href="#" onclick="window.open('http://www.azlyrics.com/', '_system', 'location=yes'); return false;">Lyrics</ion-item>-->
-      <!--<ion-item href="#" onclick="window.open('http://www.amazon.com/', '_system', 'location=yes'); return false;">Purchase</ion-item>-->
-    <!--</ion-list>-->
+      <ion-item href="#" ng-click="nc.outsidePage(nc.news)">News</ion-item>
+      <ion-item href="#" ng-click="nc.outsidePage(nc.bio)">Wiki</ion-item>
+    </ion-list>
+
+    <!--<div ng-click="nc.songPlay(nc.artist)">Testing Song</div>-->
 
   </ion-content>
 </ion-view>

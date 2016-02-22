@@ -5,7 +5,17 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('app', ['ionic', 'app.controllers', 'app.routes', 'app.services', 'app.directives', 'login', 'artistName', 'albumSearch', 'songTitle', 'relatedArtist'])
+angular.module('app', ['ionic',
+  'app.controllers',
+  'app.routes',
+  'app.services',
+  'app.directives',
+  'login',
+  'artistName',
+  'albumSearch',
+  'songTitle',
+  'relatedArtist',
+  'artistHome'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {

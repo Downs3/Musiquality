@@ -12,6 +12,10 @@ function NameController($http, $filter) {
   nc.results = '';
   nc.found = '';
   nc.news = '';
+  nc.bio = '';
+  nc.lyrics1 = '';
+  nc.lyrics2 = '';
+  nc.lyrics3 = '';
   nc.purchase1 = '';
   nc.purchase2 = '';
   nc.purchase3 = '';
@@ -22,6 +26,7 @@ function NameController($http, $filter) {
   nc.track2Name = '';
   nc.track3Name = '';
   nc.artistSearch = artistSearch;
+  nc.outsidePage = outsidePage;
   //nc.songPlay = songPlay;
 
   function artistSearch(artist) {
@@ -42,11 +47,17 @@ function NameController($http, $filter) {
         nc.purchase3 = 'http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords='+ artist + '+' + nc.track3Name;
         nc.news = 'http://www.billboard.com/search/site/' + artist + '?f[0]=ss_bb_type%3Aarticle';
         nc.bio = 'https://en.wikipedia.org/wiki/' + artist;
+        nc.lyrics1 = 'http://search.azlyrics.com/search.php?q=' + nc.track1Name + '+' + artist;
+        nc.lyrics2 = 'http://search.azlyrics.com/search.php?q=' + nc.track2Name + '+' + artist;
+        nc.lyrics3 = 'http://search.azlyrics.com/search.php?q=' + nc.track3Name + '+' + artist;
       });
     });
-    console.log(artist);
-    console.log(nc.news);
+    console.log(artist + '1');
     nc.artist = '';
+  }
+
+  function outsidePage(url) {
+    window.open(url, '_blank', 'location=yes'); return false;
   }
 
 
