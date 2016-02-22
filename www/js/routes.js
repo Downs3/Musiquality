@@ -7,37 +7,27 @@ angular.module('app.routes', [])
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
   $stateProvider
-    
-      
+
+
     .state('tabsController', {
       url: '/tabs',
       abstract:true,
       templateUrl: 'templates/tabsController.html'
     })
-      
-    
-      
-        
+
+
+
+
     .state('login', {
       url: '/page6',
       templateUrl: 'templates/login.html',
       controller: 'loginCtrl'
     })
-        
-      
-    
-      
-        
-    .state('signup', {
-      url: '/page7',
-      templateUrl: 'templates/signup.html',
-      controller: 'signupCtrl'
-    })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.home', {
       url: '/page8',
       views: {
@@ -47,11 +37,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.newMusiq', {
       url: '/page9',
       views: {
@@ -61,11 +51,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.myLikes', {
       url: '/page14',
       views: {
@@ -75,11 +65,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.popularMusiq', {
       url: '/page15',
       views: {
@@ -89,11 +79,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.artistNameSearch', {
       url: '/page17',
       views: {
@@ -103,11 +93,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.songTitleSearch', {
       url: '/page18',
       views: {
@@ -117,25 +107,25 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.musiqGenreSearch', {
       url: '/page19',
       views: {
         'tab1': {
-          templateUrl: 'templates/musiqGenreSearch.html',
+          templateUrl: 'templates/relatedArtistSearch.html',
           controller: 'musiqGenreSearchCtrl'
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.feedback', {
       url: '/page20',
       views: {
@@ -145,11 +135,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.about', {
       url: '/page21',
       views: {
@@ -159,11 +149,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.artistHome', {
       url: '/page22',
       views: {
@@ -173,11 +163,11 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
-    
-      
-        
+
+
+
+
+
     .state('tabsController.artistBiography', {
       url: '/page23',
       views: {
@@ -187,8 +177,8 @@ angular.module('app.routes', [])
         }
       }
     })
-        
-      
+
+
     ;
 
   // if none of the above states are matched, use this as the fallback
