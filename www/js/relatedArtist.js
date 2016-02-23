@@ -24,7 +24,7 @@ function RelatedArtistController($http) {
                  rc.artistArray.sort(function(a, b) {
                      return parseFloat(b.popularity) - parseFloat(a.popularity);
                  });
-                console.log(rc.artistArray.length);
+                artistService.currentArtist = artist;
             });
         });
 
