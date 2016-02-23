@@ -15,33 +15,34 @@
       <image src="{{nc.results}}"></image>
     </form>
 
-    <h2 ui-sref="tabsController.artistHome">GO TO THE "{{nc.found}}" PAGE.</h2>
+    <h2 ui-sref="tabsController.artistHome">GO TO THE "{{nc.foundCap}}" PAGE.</h2>
     <br/>
 
     <h2>BAND TRACKS</h2>
     <ion-list>
-      <ion-item href="#" ng-click="nc.outsidePage(nc.track1)">{{nc.track1Name}}</ion-item>
+      <ion-item href="#" ng-click="nc.songPlay(nc.track1)">{{nc.track1Name}}</ion-item>
     </ion-list>
-    <a href="#" ng-click="nc.outsidePage(nc.lyrics1)">Track Lyrics</a>
-    <a href="#" ng-click="nc.outsidePage(nc.purchase1)">Purchase Track</a>
+    <button ng-click="nc.songPause()">Stop Track</button>
+    <button ng-click="nc.lyricsPage(nc.track1Name)">Track Lyrics</button>
+    <button ng-click="nc.amazonPage(nc.track1Name)">Amazon</button>
     <ion-list>
-      <ion-item href="#" ng-click="nc.outsidePage(nc.track2)">{{nc.track2Name}}</ion-item>
+      <ion-item href="#" ng-click="nc.songPlay(nc.track2)">{{nc.track2Name}}</ion-item>
     </ion-list>
-    <a href="#" ng-click="nc.outsidePage(nc.lyrics2)">Track Lyrics</a>
-    <a href="#" ng-click="nc.outsidePage(nc.purchase2)">Purchase Track</a><ion-list>
-    <ion-item href="#" ng-click="nc.outsidePage(nc.track3)">{{nc.track3Name}}</ion-item>
-  </ion-list>
-    <a href="#" ng-click="nc.outsidePage(nc.lyrics3)">Track Lyrics</a>
-    <a href="#" ng-click="nc.outsidePage(nc.purchase3)">Purchase Track</a>
+    <button ng-click="nc.songPause()">Stop Track</button>
+    <button ng-click="nc.lyricsPage(nc.track2Name)">Track Lyrics</button>
+    <button ng-click="nc.amazonPage(nc.track2Name)">Amazon</button>
+    <ion-list>
+      <ion-item href="#" ng-click="nc.songPlay(nc.track3)">{{nc.track3Name}}</ion-item>
+    </ion-list>
+    <button ng-click="nc.songPause()">Stop Track</button>
+    <button ng-click="nc.lyricsPage(nc.track3Name)">Track Lyrics</button>
+    <button ng-click="nc.amazonPage(nc.track3Name)">Amazon</button>
 
     <h2>BAND INFO</h2>
     <ion-list>
-      <!--<ion-item ui-sref="tabsController.artistBiography">Biography</ion-item>-->
       <ion-item href="#" ng-click="nc.outsidePage(nc.news)">News</ion-item>
       <ion-item href="#" ng-click="nc.outsidePage(nc.bio)">Wiki</ion-item>
     </ion-list>
-
-    <!--<div ng-click="nc.songPlay(nc.artist)">Testing Song</div>-->
 
   </ion-content>
 </ion-view>

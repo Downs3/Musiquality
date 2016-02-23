@@ -15,7 +15,9 @@ angular.module('app', ['ionic',
   'albumSearch',
   'songTitle',
   'relatedArtist',
-  'artistHome'])
+  'artistHome',
+  'artistService'
+])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
