@@ -17,15 +17,22 @@ function TitleController($http) {
 
     function songTitleSearch(song) {
         $http.get('https://api.spotify.com/v1/search?q=' + song + '&type=track').then(function (response) {
-            tc.results = response.data.tracks.items[0].album.images[1].url;
-            tc.audioObject = new Audio(response.data.tracks.items[0].preview_url);
+            tc.results = response.data.tracks.items;
 
         });
         console.log(song);
         tc.found = '';
     }
-    function playTrack() {
-        tc.audioObject.play();
+    function playTrack(song) {
+        if(tc.audioObject !== null) {
+            tc.audioObject.pause();
+            tc.audioObject = new Audio(song);
+            tc.audioObject.play();
+        }
+        else {
+            tc.audioObject = new Audio(song);
+            tc.audioObject.play();
+        }
     }
     function pauseTrack() {
         tc.audioObject.pause();
