@@ -5,7 +5,7 @@
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
                 <input type="text" placeholder="Type Artist Name" ng-model="rc.artist">
-                <button type="submit" ng-click="rc.artistSearch(rc.artist)">Search</button>
+                <button type="submit"  ng-click="rc.artistSearch(rc.artist)">Search</button>
 
             </label>
 
@@ -16,29 +16,14 @@
                     {{"Popularity " + artist.popularity}} <br>
                     {{"Genre: " + artist.genres[0]}}
                 </li>
-                <!--<ul class="list" ng-repeat="artist in rc.artistArray">
-                <li class="item" ui-sref="tabsController.artistHome">{{artist.name}}</li>
-                <li class="item" ui-sref="tabsController.artistHome">{{"Popularity " + artist.popularity}}</li>
-                <li class="item"><image src="{{artist.images[1].url}}" ui-sref="tabsController.artistHome"></image></li>
-                <!--<p>{{rc.artistName}}</p>-->
-                <!--<p>{{"Popularity: " + rc.artistPopularity}}</p>-->
-            </ul>
-                <p>{{rc.artistName}}</p>-->
-                <!--<p>{{"Popularity: " + rc.artistPopularity}}</p>-->
-            </ul>
 
-            <br/>
-           <!-- <a href="{{rc.found}}">Result</a>
-            {{ rc.artistKey }}
 
-            <image src="{{rc.results}}"></image>-->
+            </ul>
+            <div ng-if="rc.artistArray && rc.artistArray.length === 0">
+                <p>No artist found. Check for spelling errors and try typing the artist name again.</p>
+            </div>
+
         </form>
-        <ion-list>
-            <ion-item ui-sref="tabsController.artistHome">Artist 1</ion-item>
-            <ion-item ui-sref="tabsController.artistHome">Artist 2</ion-item>
-            <ion-item ui-sref="tabsController.artistHome">Artist 3</ion-item>
 
-
-        </ion-list>
     </ion-content>
 </ion-view>

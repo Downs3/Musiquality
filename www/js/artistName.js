@@ -10,9 +10,9 @@ app.controller('NameController', NameController);
 function NameController($http, $filter, artistService) {
   var nc = this;
   nc.artist = '';
-  nc.results = '';
-  nc.found = '';
-  nc.foundCap = '';
+  nc.bandPic = '';
+  nc.bandName = '';
+  nc.bandNameCap = '';
   nc.news = '';
   nc.bio = '';
   nc.track1 = '';
@@ -27,16 +27,15 @@ function NameController($http, $filter, artistService) {
   nc.lyricsPage = lyricsPage;
   nc.songPlay = songPlay;
   nc.songPause = songPause;
-  audioObject = null;
+  nc.audioObject = null;
 
   function artistSearch(artist) {
-    nc.results = '';
-    nc.found = '';
-    artistService.currentArtist = artist;
+    nc.bandPic = '';
+    nc.bandName = '';
     $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist').then(function (response) {
-      nc.results = response.data.artists.items[0].images[1].url;
-      nc.found = response.data.artists.items[0].name;
-      nc.foundCap = $filter('uppercase')(nc.found);
+      nc.bandPic = response.data.artists.items[0].images[1].url;
+      nc.bandName = response.data.artists.items[0].name;
+      nc.bandNameCap = $filter('uppercase')(nc.bandName);
       $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=track').then(function (response) {
         nc.track1 = response.data.tracks.items[0].preview_url;
         nc.track2 = response.data.tracks.items[1].preview_url;
@@ -46,6 +45,9 @@ function NameController($http, $filter, artistService) {
         nc.track3Name = response.data.tracks.items[2].name;
         nc.news = 'http://www.billboard.com/search/site/' + artist + '?f[0]=ss_bb_type%3Aarticle';
         nc.bio = 'https://en.wikipedia.org/wiki/' + artist;
+        artistService.currentArtist = artist;
+        artistService.bandPic = nc.bandPic;
+        artistService.bandName = nc.bandName;
       });
     });
   }
@@ -63,12 +65,12 @@ function NameController($http, $filter, artistService) {
   }
 
   function songPlay(song){
-    audioObject = new Audio(song);
-    audioObject.play();
+    nc.audioObject = new Audio(song);
+    nc.audioObject.play();
   }
 
   function songPause(){
-    audioObject.pause();
+    nc.audioObject.pause();
   }
 }
 
