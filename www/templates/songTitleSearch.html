@@ -3,18 +3,17 @@
         <form class="list">
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
-                <input type="text" placeholder="Type Song Title Name" ng-model="tc.song">
+                <input ng-change="tc.pauseTrack()" type="text" placeholder="Type Song Title Name" ng-model="tc.song">
 
             </label>
             <br>
             <br>
 
             <button type="submit" ng-click="tc.songTitleSearch(tc.song)">Search</button>
-
-
-            
             <br/>
-            <image src="{{tc.results}}"></image>
+            <br/>
+            <image class="cover" src="{{tc.results}}" ng-click="tc.playTrack()" ng-dblclick="tc.pauseTrack()"></image>
+            <button ng-click="tc.pauseTrack()">Pause</button>
         </form>
         <ion-list>
             <ion-item ui-sref="tabsController.artistHome">Song Title 1</ion-item>
