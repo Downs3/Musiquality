@@ -11,5 +11,7 @@ app.service('artistService', artistService);
   {
     var as = this;
     as.currentArtist = '';
+    as.bandPic = '';
+    as.bandName = '';
   }
 
