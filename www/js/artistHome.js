@@ -26,7 +26,9 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.lyricsPage = lyricsPage;
   ah.songPlay = songPlay;
   ah.songPause = songPause;
+  ah.bandTracks = bandTracks;
   ah.audioObject = null;
+  ah.bandClicked = false;
 
   function artistSearch(artist) {
     ah.bandPic = '';
@@ -56,19 +58,23 @@ function ArtistHomeController($http, $filter, artistService) {
   }
 
   function amazonPage(track) {
-    window.open('http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords='+ ah.artist + '+' + track, '_blank', 'location=yes');
+    window.open('http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + ah.artist + '+' + track, '_blank', 'location=yes');
   }
 
   function outsidePage(url) {
     window.open(url, '_blank', 'location=yes');
   }
 
-  function songPlay(song){
+  function songPlay(song) {
     ah.audioObject = new Audio(song);
     ah.audioObject.play();
   }
 
-  function songPause(){
+  function songPause() {
     ah.audioObject.pause();
+  }
+
+  function bandTracks() {
+    ah.bandClicked = !ah.bandClicked;
   }
 }
