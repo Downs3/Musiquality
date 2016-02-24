@@ -18,19 +18,20 @@ function TitleController($http) {
     function songTitleSearch(song) {
         $http.get('https://api.spotify.com/v1/search?q=' + song + '&type=track').then(function (response) {
             tc.results = response.data.tracks.items;
+            console.log(response.data.tracks.items[0].id);
 
         });
         console.log(song);
         tc.found = '';
     }
-    function playTrack(song) {
+    function playTrack(track) {
         if(tc.audioObject !== null) {
             tc.audioObject.pause();
-            tc.audioObject = new Audio(song);
+            tc.audioObject = new Audio(track);
             tc.audioObject.play();
         }
         else {
-            tc.audioObject = new Audio(song);
+            tc.audioObject = new Audio(track);
             tc.audioObject.play();
         }
     }
