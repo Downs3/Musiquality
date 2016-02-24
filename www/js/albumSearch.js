@@ -9,8 +9,6 @@ function AlbumController($http) {
     ac.found = '';
     ac.albumSearch = albumSearch;
     ac.audioObject = null;
-    ac.playTrack = playTrack;
-    ac.pauseTrack = pauseTrack;
 
     function albumSearch(album) {
         $http.get('https://api.spotify.com/v1/search?q=' + album + '&type=album').then(function (response) {
@@ -19,20 +17,7 @@ function AlbumController($http) {
         console.log(album);
         ac.found = '';
     }
-    function playTrack(track) {
-        if(ac.audioObject !== null) {
-            ac.audioObject.pause();
-            ac.audioObject = new Audio(track);
-            ac.audioObject.play();
-        }
-        else {
-            ac.audioObject = new Audio(track);
-            ac.audioObject.play();
-        }
-    }
-    function pauseTrack() {
-        ac.audioObject.pause();
-    }
+
 }
 
 
