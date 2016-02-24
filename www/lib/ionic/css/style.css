@@ -8,3 +8,6 @@
 .buttonStyle{
     margin-bottom: 12px;
 }
+.hiddenBtn{
+    display: none;
+}
