@@ -4,17 +4,12 @@
       <label class="item item-input">
         <!--<span class="input-label">Input</span>-->
         <input type="text" placeholder="Type Artist Name" ng-model="nc.artist">
+        <button class="hiddenBtn" type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
 
       </label>
-      <br>
-      <br>
-
-      <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
-      <br/>
-      <br/>
       <ul ng-repeat="item in nc.results">
         <li class="item item-thumbnail-left">
-          <image class="rcImg" class="cover" src="{{item.images[1].url}}" ng-click="nc.songPlay(item.preview_url)" ng-dblclick="nc.songPause()"></image>
+          <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}" ng-click="nc.songPlay(item.preview_url)" ng-dblclick="nc.songPause()"/>
 
           <button class="buttonStyle ion-play button button-small" ng-click="nc.songPlay(item.preview_url)"></button>
           <button class="buttonStyle ion-stop button button-small" ng-click="nc.songPause()"></button>

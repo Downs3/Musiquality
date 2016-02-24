@@ -1,17 +1,17 @@
 
-<ion-view title="Artist Name Search">
+<ion-view title="Related Artist Search">
     <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="RelatedArtistController as rc">
         <form class="list">
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
                 <input type="text" placeholder="Type Artist Name" ng-model="rc.artist">
-                <button type="submit"  ng-click="rc.artistSearch(rc.artist)">Search</button>
+                <button class="hiddenBtn" type="submit"  ng-click="rc.artistSearch(rc.artist)">Search</button>
 
             </label>
 
             <ul class="list" ng-repeat="artist in rc.artistArray">
                 <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome">
-                    <image class="rcImg" src="{{artist.images[1].url}}"></image>
+                    <img class="rcImg" ng-src="{{artist.images[1].url}}"/>
                     <span class="rcArtistName">{{artist.name}}</span> <br>
                     {{"Popularity " + artist.popularity}} <br>
                     {{"Genre: " + artist.genres[0]}}
