@@ -28,11 +28,15 @@
      <button ng-click="ah.lyricsPage(ah.track3Name)">Track Lyrics</button>
      <button ng-click="ah.amazonPage(ah.track3Name)">Amazon</button>
     </div>
-    <h2>BAND INFO</h2>
-    <ion-list>
-      <ion-item href="#" ng-click="ah.outsidePage(ah.news)">News</ion-item>
-      <ion-item href="#" ng-click="ah.outsidePage(ah.bio)">Wiki</ion-item>
-    </ion-list>
+
+      <h2 ng-click="ah.newsShow()">BAND INFO</h2>
+      <div ng-show="ah.newsClicked">
+          <ion-list>
+              <ion-item href="#" ng-click="ah.outsidePage(ah.news)">News</ion-item>
+              <ion-item href="#" ng-click="ah.outsidePage(ah.bio)">Wiki</ion-item>
+          </ion-list>
+      </div>
+
 
 
   </ion-content>
