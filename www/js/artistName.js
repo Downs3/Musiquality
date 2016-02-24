@@ -5,65 +5,48 @@ var app = angular.module('artistName', []);
 
 app.controller('NameController', NameController);
 
-function NameController($http, $filter) {
-  // controller data and functions
+NameController.$inject = ['$http', 'artistService'];
+
+function NameController($http, artistService) {
   var nc = this;
   nc.artist = '';
+  nc.bandPic = '';
+  nc.bandName = '';
   nc.results = '';
-  nc.found = '';
-  nc.news = '';
-  nc.purchase1 = '';
-  nc.purchase2 = '';
-  nc.purchase3 = '';
-  nc.track1 = '';
-  nc.track2 = '';
-  nc.track3 = '';
-  nc.track1Name = '';
-  nc.track2Name = '';
-  nc.track3Name = '';
+  nc.results2 = '';
   nc.artistSearch = artistSearch;
-  //nc.songPlay = songPlay;
+  nc.songPlay = songPlay;
+  nc.songPause = songPause;
+  nc.audioObject = null;
 
   function artistSearch(artist) {
-    nc.results = '';
-    nc.found = '';
     $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist').then(function (response) {
-      nc.results = response.data.artists.items[0].images[1].url;
-      nc.found = response.data.artists.items[0].name;
+      nc.results = response.data.artists.items;
+      nc.bandPic = response.data.artists.items[0].images[1].url;
+      nc.bandName = response.data.artists.items[0].name;
+      artistService.currentArtist = artist;
+      artistService.bandPic = nc.bandPic;
+      artistService.bandName = nc.bandName;
       $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=track').then(function (response) {
-        nc.track1 = response.data.tracks.items[0].preview_url;
-        nc.track2 = response.data.tracks.items[1].preview_url;
-        nc.track3 = response.data.tracks.items[2].preview_url;
-        nc.track1Name = response.data.tracks.items[0].name;
-        nc.track2Name = response.data.tracks.items[1].name;
-        nc.track3Name = response.data.tracks.items[2].name;
-        nc.purchase1 = 'http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords='+ artist + '+' + nc.track1Name;
-        nc.purchase2 = 'http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords='+ artist + '+' + nc.track2Name;
-        nc.purchase3 = 'http://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords='+ artist + '+' + nc.track3Name;
-        nc.news = 'http://www.billboard.com/search/site/' + artist + '?f[0]=ss_bb_type%3Aarticle';
-        nc.bio = 'https://en.wikipedia.org/wiki/' + artist;
+        nc.results2 = response.data.tracks.items;
       });
     });
-    console.log(artist);
-    console.log(nc.news);
-    nc.artist = '';
   }
 
+  function songPlay(song) {
+    if (nc.audioObject !== null) {
+      nc.audioObject.pause();
+      nc.audioObject = new Audio(song);
+      nc.audioObject.play();
+    }
+    else {
+      nc.audioObject = new Audio(song);
+      nc.audioObject.play();
+    }
+  }
 
-
-  //function songPlay(artist){
-  //$http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=track').then(function (response) {
-  //  audioObject = new Audio(response.data.tracks.items[0].preview_url);
-  //  audioObject.play();
-  //});
-  //}
+  function songPause() {
+    nc.audioObject.pause();
+  }
 }
 
-//audioObject = new Audio(data.tracks.items[0].preview_url);
-//audioObject.play();
-
-//$filter('filter')(array, expression)
-
-//return $http.get('https://api.spotify.com/v1/search?q=tania%20bowra&type=artist');
-
-//https://en.wikipedia.org/wiki/nirvana(band)
