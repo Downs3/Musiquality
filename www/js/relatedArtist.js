@@ -5,7 +5,6 @@ var app = angular.module('relatedArtist', []);
 
 app.controller('RelatedArtistController', RelatedArtistController);
 
-
 function RelatedArtistController($http, artistService) {
   // controller data and functions
   var rc = this;
