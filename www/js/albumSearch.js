@@ -8,10 +8,11 @@ function AlbumController($http) {
     ac.artist = '';
     ac.found = '';
     ac.albumSearch = albumSearch;
+    ac.audioObject = null;
 
     function albumSearch(album) {
         $http.get('https://api.spotify.com/v1/search?q=' + album + '&type=album').then(function (response) {
-            ac.results = response.data.albums.items[19].images[2].url;
+            ac.results = response.data.albums.items;
         });
         console.log(album);
         ac.found = '';

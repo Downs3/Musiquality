@@ -4,45 +4,26 @@
       <label class="item item-input">
         <!--<span class="input-label">Input</span>-->
         <input type="text" placeholder="Type Artist Name" ng-model="nc.artist">
+        <button class="hiddenBtn" type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
 
       </label>
-      <br>
+      <ul ng-repeat="item in nc.results">
+        <li class="item item-thumbnail-left">
+          <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}" ng-click="nc.songPlay(item.preview_url)" ng-dblclick="nc.songPause()"/>
 
-      <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
+          <button class="buttonStyle ion-play button button-small" ng-click="nc.songPlay(item.preview_url)"></button>
+          <button class="buttonStyle ion-stop button button-small" ng-click="nc.songPause()"></button>
+          <br/>
+          <div>
+            {{"Artist: " + item.name}}</br>
 
-      <br/>
-
-      <image src="{{nc.bandPic}}"></image>
+            {{"Popularity: " + item.popularity}}</br>
+          </div>
+          <div class="item-button-right">
+            <button class="button item-button-right" ui-sref="tabsController.artistHome">Go to Artist Page</button>
+          </div>
+        </li>
+      </ul>
     </form>
-
-    <h2 ui-sref="tabsController.artistHome">GO TO THE "{{nc.bandNameCap}}" PAGE.</h2>
-    <br/>
-
-    <h2>BAND TRACKS</h2>
-    <ion-list>
-      <ion-item href="#" ng-click="nc.songPlay(nc.track1)">{{nc.track1Name}}</ion-item>
-    </ion-list>
-    <button ng-click="nc.songPause()">Stop Track</button>
-    <button ng-click="nc.lyricsPage(nc.track1Name)">Track Lyrics</button>
-    <button ng-click="nc.amazonPage(nc.track1Name)">Amazon</button>
-    <ion-list>
-      <ion-item href="#" ng-click="nc.songPlay(nc.track2)">{{nc.track2Name}}</ion-item>
-    </ion-list>
-    <button ng-click="nc.songPause()">Stop Track</button>
-    <button ng-click="nc.lyricsPage(nc.track2Name)">Track Lyrics</button>
-    <button ng-click="nc.amazonPage(nc.track2Name)">Amazon</button>
-    <ion-list>
-      <ion-item href="#" ng-click="nc.songPlay(nc.track3)">{{nc.track3Name}}</ion-item>
-    </ion-list>
-    <button ng-click="nc.songPause()">Stop Track</button>
-    <button ng-click="nc.lyricsPage(nc.track3Name)">Track Lyrics</button>
-    <button ng-click="nc.amazonPage(nc.track3Name)">Amazon</button>
-
-    <h2>BAND INFO</h2>
-    <ion-list>
-      <ion-item href="#" ng-click="nc.outsidePage(nc.news)">News</ion-item>
-      <ion-item href="#" ng-click="nc.outsidePage(nc.bio)">Wiki</ion-item>
-    </ion-list>
-
   </ion-content>
 </ion-view>
