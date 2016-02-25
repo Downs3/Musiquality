@@ -4,9 +4,9 @@
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
                 <input type="text" placeholder="Type Song Title Name" ng-model="tc.song">
-                <button class="hiddenBtn" type="submit" ng-click="tc.songTitleSearch(tc.song)"></button>
 
             </label>
+            <button class="button button-clear" type="submit" ng-click="tc.songTitleSearch(tc.song)"></button>
 
             <ul ng-repeat="item in tc.results">
                 <li class="item item-thumbnail-left">
