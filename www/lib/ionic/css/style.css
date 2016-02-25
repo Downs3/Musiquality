@@ -11,3 +11,11 @@
 .hiddenBtn{
     display: none;
 }
+
+.fullImage {
+    width: 100%;
+}
+
+.fullFont {
+    font-size: 3em;
+}
