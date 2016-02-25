@@ -11,28 +11,30 @@ function ArtistHomeController($http, $filter, artistService) {
   var ah = this;
   ah.artist = artistService.currentArtist;
   ah.bandPic = artistService.bandPic;
-  ah.bandName = artistService.bandName;
   ah.news = '';
   ah.bio = '';
-  ah.track1 = '';
-  ah.track2 = '';
-  ah.track3 = '';
-  ah.track1Name = '';
-  ah.track2Name = '';
-  ah.track3Name = '';
+  ah.trackResults = '';
   ah.artistSearch = artistSearch;
-  ah.outsidePage = outsidePage;
   ah.amazonPage = amazonPage;
   ah.lyricsPage = lyricsPage;
+  ah.outsidePage = outsidePage;
   ah.songPlay = songPlay;
   ah.songPause = songPause;
   ah.bandTracks = bandTracks;
+  ah.tracks = tracks;
   ah.audioObject = null;
   ah.bandClicked = false;
 
+  function tracks (artist) {
+    $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=track').then(function (response) {
+      ah.trackResults = response.data.tracks.items;
+      //image = response.data.tracks.items[0].album.images[1].url;
+      console.log(ah.trackResults);
+
+    });
+  }
+
   function artistSearch(artist) {
-    ah.bandPic = '';
-    ah.bandName = '';
     $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist').then(function (response) {
       ah.bandPic = response.data.artists.items[0].images[1].url;
       ah.bandName = response.data.artists.items[0].name;
