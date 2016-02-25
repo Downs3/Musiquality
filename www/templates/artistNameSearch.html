@@ -4,20 +4,12 @@
       <label class="item item-input">
         <!--<span class="input-label">Input</span>-->
         <input type="text" placeholder="Type Artist Name" ng-model="nc.artist">
-
       </label>
-      <br>
-      <br>
-
-      <button type="submit" ng-click="nc.artistSearch(nc.artist)">Search</button>
-      <br/>
-      <br/>
+      <button class="button button-clear" type="submit" ng-click="nc.artistSearch(nc.artist)"></button>
       <ul ng-repeat="item in nc.results">
-        <li class="item item-thumbnail-left">
-          <image class="rcImg" class="cover" src="{{item.images[1].url}}" ng-click="nc.songPlay(item.preview_url)" ng-dblclick="nc.songPause()"></image>
+        <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome" ng-click="nc.currentArtist(item.name, item.images[0].url)">
+          <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}"/>
 
-          <button class="buttonStyle ion-play button button-small" ng-click="nc.songPlay(item.preview_url)"></button>
-          <button class="buttonStyle ion-stop button button-small" ng-click="nc.songPause()"></button>
           <br/>
           <div>
             {{"Artist: " + item.name}}</br>
@@ -25,7 +17,7 @@
             {{"Popularity: " + item.popularity}}</br>
           </div>
           <div class="item-button-right">
-            <button class="button item-button-right" ui-sref="tabsController.artistHome">Go to Artist Page</button>
+            <button class="button item-button-right">Artist Page</button>
           </div>
         </li>
       </ul>

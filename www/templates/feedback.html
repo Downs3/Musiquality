@@ -1,5 +1,5 @@
-<ion-view title="Feedback">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
+<ion-view title="Feedback"  ng-init="emails = [{ from: 'John', subject: 'I love angular', date: 'Jan 1' }]">
+    <ion-content overflow-scroll="true" padding="true" class="has-header"  ng-controller="FeedbackController as fc">
         <form class="list">
             <label class="item item-input">
                 <span class="input-label">Input</span>
@@ -9,6 +9,6 @@
                 <span class="input-label">Text</span><textarea placeholder=""> </textarea>
             </label>
         </form>
-        <button class="button button-stable button-block ">Tap me!</button>
+        <button class="button button-stable button-block " ng-click="fc.sendEmail()">Tap me!</button>
     </ion-content>
 </ion-view>
