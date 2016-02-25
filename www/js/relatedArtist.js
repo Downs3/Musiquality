@@ -12,6 +12,7 @@ function RelatedArtistController($http, artistService) {
   rc.artistKey = '';
   rc.bandPic = '';
   rc.bandName = '';
+  rc.currentArtist = currentArtist;
   rc.artistSearch = artistSearch;
 
   function artistSearch(artist) {
@@ -37,6 +38,10 @@ function RelatedArtistController($http, artistService) {
       });
     });
 
+  }
+  function currentArtist(name, pic) {
+    artistService.currentArtist = name;
+    artistService.bandPic = pic;
   }
 
 }
