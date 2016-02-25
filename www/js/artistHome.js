@@ -21,12 +21,7 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.songPlay = songPlay;
   ah.songPause = songPause;
   ah.bandTracks = bandTracks;
-<<<<<<< HEAD
-  ah.newsShow = newsShow;
-  ah.newsClicked = false;
-=======
   ah.tracks = tracks;
->>>>>>> master
   ah.audioObject = null;
   ah.bandClicked = false;
 
@@ -81,11 +76,7 @@ function ArtistHomeController($http, $filter, artistService) {
     ah.audioObject.pause();
   }
 
-  //bandTracks and newsShow are used to toggle the ng-show property
   function bandTracks() {
     ah.bandClicked = !ah.bandClicked;
-  }
-  function newsShow() {
-    ah.newsClicked = !ah.newsClicked;
   }
 }
