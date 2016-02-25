@@ -159,7 +159,24 @@ angular.module('app.routes', [])
       views: {
         'tab1': {
           templateUrl: 'templates/artistHome.html',
-          controller: 'artistHomeCtrl'
+          controller: 'artistHomeCtrl',
+          resolve: {
+            artist: function ($http, artistService) {
+              //return artistService.currentArtist = 'my artist';
+              return $http.get('https://api.spotify.com/v1/albums/' + artistService.id)
+                  .then(function (response) {
+                    artistService.currentArtist = response.data.artists[0].name;
+                    console.log(artistService.currentArtist);
+                    return $http.get('https://api.spotify.com/v1/search?q=' + artistService.currentArtist + '&type=artist').then(function (response) {
+                      var results3 = response.data.artists.items[0].images[1].url;
+                      artistService.bandPic = results3;
+                    })
+                  }).catch(function (error) {
+                    console.log(error);
+                  });
+
+            }
+          }
         }
       }
     })
