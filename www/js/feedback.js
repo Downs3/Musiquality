@@ -8,12 +8,29 @@ app.controller('FeedbackController', FeedbackController);
 function FeedbackController($http) {
     // controller data and functions
 
+
     var fc = this;
+    fc.feedback = feedback;
+    fc.messages = '';
+    fc.name = '';
 
-    fc.sendEmail = sendEmail;
 
-function sendEmail($scope) {
-    $scope.emails = [
-        { from: 'John', subject: 'I love angular', date: 'Jan 1' }
-    ];
-}}
+    function feedback() {
+
+        var ref = new Firebase("https://musiquality.firebaseio.com/");
+
+        var postsRef = ref.child("feedback");
+
+        var newPostRef = postsRef.push();
+        newPostRef.set({
+            Author: fc.name,
+            Feedback: fc.messages
+
+
+        });
+        fc.messageSent = true;
+        fc.messages = '';
+        fc.name = '';
+
+    }
+}
