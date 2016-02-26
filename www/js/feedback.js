@@ -10,6 +10,7 @@ function FeedbackController($http) {
 
 
     var fc = this;
+    fc.hideAlert = hideAlert;
     fc.feedback = feedback;
     fc.messages = '';
     fc.name = '';
@@ -32,5 +33,8 @@ function FeedbackController($http) {
         fc.messages = '';
         fc.name = '';
 
+    }
+    function hideAlert(){
+        fc.messageSent = false;
     }
 }
