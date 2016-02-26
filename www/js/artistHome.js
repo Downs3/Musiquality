@@ -20,7 +20,6 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.outsidePage = outsidePage;
   ah.songPlay = songPlay;
   ah.songPause = songPause;
-  ah.bandTracks = bandTracks;
   ah.tracks = tracks;
   ah.audioObject = null;
   ah.bandClicked = false;
@@ -30,7 +29,8 @@ function ArtistHomeController($http, $filter, artistService) {
       ah.trackResults = response.data.tracks.items;
       //image = response.data.tracks.items[0].album.images[1].url;
       console.log(ah.trackResults);
-
+      //toggles between showing and hiding
+      ah.bandClicked = !ah.bandClicked;
     });
   }
 
@@ -74,9 +74,5 @@ function ArtistHomeController($http, $filter, artistService) {
 
   function songPause() {
     ah.audioObject.pause();
-  }
-
-  function bandTracks() {
-    ah.bandClicked = !ah.bandClicked;
   }
 }
