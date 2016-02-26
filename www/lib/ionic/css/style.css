@@ -22,3 +22,11 @@ h4{
 .aboutText{
     text-align: center;
 }
+#musicIcon{
+    color: green;
+    text-align: center;
+}
+.homeNote{
+    text-align: center;
+    font-size: xx-large;
+}

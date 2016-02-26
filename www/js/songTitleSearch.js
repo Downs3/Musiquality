@@ -37,6 +37,7 @@ function TitleController($http) {
     function pauseTrack() {
         tc.audioObject.pause();
     }
+
 }
 
 
