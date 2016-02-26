@@ -2,19 +2,20 @@
     <ion-content overflow-scroll="true" padding="true" class="has-header"  ng-controller="FeedbackController as fc">
         <form class="list">
             <label class="item">
-                <input class="feedbackInput" type="text" placeholder="Enter your email" ng-model="fc.name">
+                <input ng-click="fc.hideAlert()" class="feedbackInput" type="text" placeholder="Enter your email" ng-model="fc.name">
             </label>
             <br/>
             <label class="item">
                 <span class="input-label"></span>
-                <textarea class="feedbackInput" type="text" placeholder="Enter your feedback" ng-model="fc.messages"></textarea>
+                <textarea ng-click="fc.hideAlert()" class="feedbackInput" type="text" placeholder="Enter your feedback" ng-model="fc.messages"></textarea>
             </label>
 
         </form>
         <button class="button button-stable button-block " ng-click="fc.feedback()">Send</button>
         <div ng-show="fc.messageSent">
-            <h4>You feedback has been sent.</h4>
+            <h4>Your feedback has been sent.</h4>
             <h4>Thank You!!</h4>
+            <h3 class="ion-music-note" id="musicIcon"></h3>
         </div>
     </ion-content>
 </ion-view>

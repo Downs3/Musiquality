@@ -19,9 +19,8 @@ function AlbumController($http,  artistService, $state)  {
         });
     }
     function currentArtist(id) {
-        artistService.id = id
+        artistService.id = id;
         $state.go('tabsController.artistHome');
-
     }
 }
 
