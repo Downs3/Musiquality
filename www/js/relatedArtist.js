@@ -25,7 +25,6 @@ function RelatedArtistController($http, artistService) {
       artistService.currentArtist = artist;
       artistService.bandPic = rc.bandPic;
       artistService.bandName = rc.bandName;
-      console.log(artistService.currentArtist);
       //second get request injects the artist key and returns the related artists information
       $http.get('https://api.spotify.com/v1/artists/' + rc.artistKey + '/related-artists').then(function (secondResponse) {
         rc.artistArray = secondResponse.data.artists;
