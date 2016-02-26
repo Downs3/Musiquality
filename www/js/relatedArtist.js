@@ -12,6 +12,7 @@ function RelatedArtistController($http, artistService) {
   rc.artistKey = '';
   rc.bandPic = '';
   rc.bandName = '';
+  rc.currentArtist = currentArtist;
   rc.artistSearch = artistSearch;
 
   function artistSearch(artist) {
@@ -24,7 +25,6 @@ function RelatedArtistController($http, artistService) {
       artistService.currentArtist = artist;
       artistService.bandPic = rc.bandPic;
       artistService.bandName = rc.bandName;
-      console.log(artistService.currentArtist);
       //second get request injects the artist key and returns the related artists information
       $http.get('https://api.spotify.com/v1/artists/' + rc.artistKey + '/related-artists').then(function (secondResponse) {
         rc.artistArray = secondResponse.data.artists;
@@ -37,6 +37,10 @@ function RelatedArtistController($http, artistService) {
       });
     });
 
+  }
+  function currentArtist(name, pic) {
+    artistService.currentArtist = name;
+    artistService.bandPic = pic;
   }
 
 }

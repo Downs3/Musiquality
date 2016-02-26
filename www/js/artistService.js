@@ -10,6 +10,7 @@ app.service('artistService', artistService);
   function artistService()
   {
     var as = this;
+    as.id = '';
     as.currentArtist = '';
     as.bandPic = '';
   }

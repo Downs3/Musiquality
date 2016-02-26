@@ -5,12 +5,12 @@
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
                 <input type="text" placeholder="Type Artist Name" ng-model="rc.artist">
-                <button class="hiddenBtn" type="submit"  ng-click="rc.artistSearch(rc.artist)">Search</button>
+                <button class="button button-clear" type="submit"  ng-click="rc.artistSearch(rc.artist)">Search</button>
 
             </label>
 
             <ul class="list" ng-repeat="artist in rc.artistArray">
-                <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome">
+                <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome" ng-click="rc.currentArtist(artist.name, artist.images[0].url)">
                     <img class="rcImg" ng-src="{{artist.images[1].url}}"/>
                     <span class="rcArtistName">{{artist.name}}</span> <br>
                     {{"Popularity " + artist.popularity}} <br>

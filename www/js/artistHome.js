@@ -20,19 +20,37 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.outsidePage = outsidePage;
   ah.songPlay = songPlay;
   ah.songPause = songPause;
-  ah.bandTracks = bandTracks;
   ah.tracks = tracks;
+  ah.albums = albums;
   ah.audioObject = null;
   ah.bandClicked = false;
+  ah.albumClicked = false;
+
 
   function tracks (artist) {
     $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=track').then(function (response) {
       ah.trackResults = response.data.tracks.items;
+      //sorts trackResults based on popularity
+      ah.trackResults.sort(function (a, b) {
+        return parseFloat(b.popularity) - parseFloat(a.popularity);
+      });
       //image = response.data.tracks.items[0].album.images[1].url;
       console.log(ah.trackResults);
-
+      //toggles between showing and hiding
+      ah.bandClicked = !ah.bandClicked;
     });
   }
+
+  function albums(artist){
+    $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=album').then(function (response) {
+      ah.albumResults = response.data.albums.items;
+      //toggles between showing and hiding
+      ah.albumClicked = !ah.albumClicked;
+    });
+  }
+
+
+
 
   function artistSearch(artist) {
     $http.get('https://api.spotify.com/v1/search?q=' + artist + '&type=artist').then(function (response) {
@@ -74,9 +92,5 @@ function ArtistHomeController($http, $filter, artistService) {
 
   function songPause() {
     ah.audioObject.pause();
-  }
-
-  function bandTracks() {
-    ah.bandClicked = !ah.bandClicked;
   }
 }

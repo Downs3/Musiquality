@@ -11,6 +11,16 @@
 .hiddenBtn{
     display: none;
 }
+
+
+.fullImage {
+    width: 100%;
+}
+
+.fullFont {
+    font-size: 3em;
+}
+
 .feedbackInput{
     height: 150px;
     width: 100%;
@@ -32,4 +42,15 @@ h4{
 }
 .likeBtn{
     left: 80%;
+
+}
+
+#aboutTextTitle{
+    font-size: 3em;
+}
+.aboutTextContent{
+    font-size: 2em;
+}
+#aboutTextCreatedBy{
+    font-size: 1.5em;
 }
