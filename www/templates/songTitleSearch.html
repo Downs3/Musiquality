@@ -21,7 +21,7 @@
                     {{"Popularity: " + item.popularity}}</br>
                     </div>
                     <div class="item-button-right">
-                    <button class="button item-button-right" ui-sref="tabsController.artistHome">Artist Page</button>
+                    <button class="button item-button-right" ui-sref="tabsController.artistHome" ng-click="tc.currentArtist(item.id)">Artist Page</button>
                     </div>
                 </li>
             </ul>

@@ -5,7 +5,7 @@ var app = angular.module('songTitle', []);
 
 app.controller('TitleController', TitleController);
 
-function TitleController($http, artistService) {
+function TitleController($http, artistService, $state) {
   var tc = this;
   tc.song = '';
   tc.bandPic = '';
@@ -22,9 +22,10 @@ function TitleController($http, artistService) {
     });
   }
 
-  function currentArtist(name, pic) {
-    artistService.currentArtist = name;
-    artistService.bandPic = pic;
+  function currentArtist(id) {
+    artistService.id = id;
+    $state.go('tabsController.artistHome');
+    console.log(id);
   }
 
 
