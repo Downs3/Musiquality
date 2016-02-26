@@ -11,3 +11,25 @@
 .hiddenBtn{
     display: none;
 }
+
+
+.fullImage {
+    width: 100%;
+}
+
+.fullFont {
+    font-size: 3em;
+}
+
+.feedbackInput{
+    height: 150px;
+    width: 100%;
+}
+h4{
+    color: green;
+    text-align: center;
+}
+.aboutText{
+    text-align: center;
+
+}
