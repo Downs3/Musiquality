@@ -5,7 +5,7 @@ var app = angular.module('relatedArtist', []);
 
 app.controller('RelatedArtistController', RelatedArtistController);
 
-function RelatedArtistController($http, artistService) {
+function RelatedArtistController($http, artistService, $state) {
   // controller data and functions
   var rc = this;
   rc.artist = '';
@@ -41,6 +41,8 @@ function RelatedArtistController($http, artistService) {
   function currentArtist(name, pic) {
     artistService.currentArtist = name;
     artistService.bandPic = pic;
+    artistService.id = '';
+    $state.go('tabsController.artistHome');
   }
 
 }

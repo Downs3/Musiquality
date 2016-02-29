@@ -46,7 +46,7 @@ angular.module('app.routes', [])
       url: '/page9',
       views: {
         'tab1': {
-          templateUrl: 'templates/newMusiq.html',
+          templateUrl: 'templates/albumSearch.html',
           controller: 'newMusiqCtrl'
         }
       }
