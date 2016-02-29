@@ -6,7 +6,7 @@
       <img class="fullImage" src="{{ah.bandPic}}"/>
     </form>
 
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Band Tracks</ion-item>
+    <ion-item href="#" ng-click="ah.tracks(ah.artist)">Artist Tracks</ion-item>
     <div ng-show="ah.bandClicked">
      <ul ng-repeat="item in ah.trackResults">
        <li class="item item-thumbnail-left">
@@ -43,28 +43,21 @@
             <button class="button item-button-right" ng-click="ah.buyAlbum(ah.artist, item.name)">Buy</button>
           </div>
           <div>
-            <span class="rcArtistName"> {{"Album:"}} </span> </br> </br>
-            {{ item.name }}
+            </br> </br>
+            <span class="rcArtistName">{{ item.name }}</span>
+
           </div>
         </li>
       </ul>
     </div>
 
 
-    <ion-item href="#" ng-click="ah.news(ah.artist)" >About the Artist</ion-item>
-    <div ng-show="ah.newsClicked">
+    <ion-item href="#" ng-click="ah.aboutTheArtist()" >About the Artist</ion-item>
+    <div class="item" ng-show="ah.newsClicked">
       <ul>
-        <li class="item item-thumbnail-left">
-          {{ah.wikiResults}}
-
-
-          <div class="item-button-right">
-            <button class="button item-button-right">Buy</button>
-          </div>
-          <div>
-            <span class="rcArtistName"> News: </span> </br> </br>
-
-          </div>
+        <li>
+          <button class="button" ng-click="ah.wiki(ah.artist)">Go to Wiki</button> <br> <br>
+          <button class="button" ng-click="ah.news(ah.artist)">Go to News</button>
         </li>
       </ul>
     </div>
