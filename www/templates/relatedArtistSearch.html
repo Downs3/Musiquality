@@ -1,11 +1,11 @@
 
-<ion-view title="Related Artist Search">
+<ion-view title="Related Search">
     <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="RelatedArtistController as rc">
         <form class="list">
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
                 <input type="text" placeholder="Type Artist Name" ng-model="rc.artist">
-                <button class="button button-clear" type="submit"  ng-click="rc.artistSearch(rc.artist)">Search</button>
+                <button class="button button-clear" type="submit"  ng-click="rc.artistSearch(rc.artist)"></button>
 
             </label>
 
@@ -13,7 +13,7 @@
                 <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome" ng-click="rc.currentArtist(artist.name, artist.images[0].url)">
                     <img class="rcImg" ng-src="{{artist.images[1].url}}"/>
                     <span class="rcArtistName">{{artist.name}}</span> <br>
-                    {{"Popularity " + artist.popularity}} <br>
+                    {{"Popularity: " + artist.popularity}} <br>
                     {{"Genre: " + artist.genres[0]}}
                 </li>
 
