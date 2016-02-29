@@ -26,6 +26,7 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.buyAlbum = buyAlbum;
   ah.buyTrack = buyTrack;
   ah.news = news;
+  ah.likesPage = likesPage;
   ah.audioObject = null;
   ah.bandClicked = false;
   ah.albumClicked = false;
@@ -120,5 +121,8 @@ function ArtistHomeController($http, $filter, artistService) {
 
   function songPause() {
     ah.audioObject.pause();
+  }
+  function likesPage() {
+    artistService.addLikes();
   }
 }

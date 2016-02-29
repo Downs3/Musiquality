@@ -9,7 +9,7 @@
       <ul ng-repeat="item in nc.results">
         <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome" ng-click="nc.currentArtist(item.name, item.images[0].url)">
           <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}"/>
-          <div class="rcArtistName">{{item.name}}</div>
+          <span class="rcArtistName">{{item.name}}</span><br/>
 
 
             {{"Popularity: " + item.popularity}}</br>

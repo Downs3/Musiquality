@@ -7,8 +7,8 @@ app.config(['$localStorageProvider',
         $localStorageProvider.setKeyPrefix('');
     }]);
 app.controller('MainController', MainController);
-MainController.$inject = ['$timeout', '$localStorage'];
-function MainController($timeout, $localStorage) {
+MainController.$inject = ['$timeout', '$localStorage', 'artistService'];
+function MainController($timeout, $localStorage, artistService) {
     // controller data and functions
     var vm = this;
     vm.facebookLogin = facebookLogin;
@@ -34,6 +34,8 @@ function MainController($timeout, $localStorage) {
                     vm.fbData = authData;
                 });
                 vm.loggedIn = true;
+
+                artistService.login = authData.uid;
             }
 
         });
@@ -52,6 +54,9 @@ function MainController($timeout, $localStorage) {
                     vm.fbData = authData;
                 });
                 vm.loggedIn = true;
+
+                artistService.login = authData.uid;
+                console.log(artistService.login);
             }
         });
     }
