@@ -5,12 +5,11 @@ var app = angular.module('artistName', []);
 
 app.controller('NameController', NameController);
 
-NameController.$inject = ['$http', 'artistService'];
+NameController.$inject = ['$http', 'artistService', '$state'];
 
-function NameController($http, artistService) {
+function NameController($http, artistService, $state) {
   var nc = this;
   nc.artist = '';
-  nc.bandPic = '';
   nc.results = '';
   nc.artistSearch = artistSearch;
   nc.currentArtist = currentArtist;
@@ -24,6 +23,8 @@ function NameController($http, artistService) {
   function currentArtist(name, pic) {
     artistService.currentArtist = name;
     artistService.bandPic = pic;
+    artistService.id = '';
+    $state.go('tabsController.artistHome');
   }
 }
 
