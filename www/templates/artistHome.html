@@ -1,12 +1,16 @@
 <ion-view title="Artist Home">
   <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="ArtistHomeController as ah">
+<<<<<<< HEAD
       <button class="likeBtn button ion-thumbsup"> Like</button>
+=======
+      <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
+>>>>>>> 48geoffbrown/master
     <form class="list">
       <h1 class="fullFont">{{ah.artist}}</h1>
       <img class="fullImage" src="{{ah.bandPic}}"/>
     </form>
 
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Band Tracks</ion-item>
+    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Tracks</ion-item>
     <div ng-show="ah.bandClicked">
      <ul ng-repeat="item in ah.trackResults">
        <li class="item item-thumbnail-left">
@@ -22,7 +26,10 @@
          </div>
 
          <div class="item-button-right">
-           <button class="button item-button-right">Purchase</button>
+           <div class="buttons">
+            <button class="button item-button-right button-small" ng-click="ah.songLyrics(ah.artist, item.name)">Lyrics</button> <br>
+            <button class="button item-button-right button-small" ng-click="ah.buyTrack(ah.artist, item.name)">Buy</button>
+           </div>
          </div>
        </li>
      </ul>
@@ -34,12 +41,33 @@
       <ul ng-repeat="item in ah.albumResults">
         <li class="item item-thumbnail-left">
           <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}"/>
-          <div>
-            {{"Album: " + item.name}} </br>
-          </div>
+
 
           <div class="item-button-right">
-            <button class="button item-button-right">Purchase</button>
+            <button class="button item-button-right" ng-click="ah.buyAlbum(ah.artist, item.name)">Buy</button>
+          </div>
+          <div>
+            <span class="rcArtistName"> {{"Album:"}} </span> </br> </br>
+            {{ item.name }}
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <ion-item href="#" ng-click="ah.news(ah.artist)" >About the Artist</ion-item>
+    <div ng-show="ah.newsClicked">
+      <ul>
+        <li class="item item-thumbnail-left">
+          {{ah.wikiResults}}
+
+
+          <div class="item-button-right">
+            <button class="button item-button-right">Buy</button>
+          </div>
+          <div>
+            <span class="rcArtistName"> News: </span> </br> </br>
+
           </div>
         </li>
       </ul>

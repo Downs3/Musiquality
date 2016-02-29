@@ -1,9 +1,13 @@
 <ion-view title="My Likes">
-    <ion-content overflow-scroll="true" padding="true" class="has-header">
-        <ion-list>
-            <ion-item>Like 1</ion-item>
-            <ion-item>Like 2</ion-item>
-            <ion-item>Like 3</ion-item>
-        </ion-list>
+    <ion-content overflow-scroll="true" padding="true" class="has-header" ng-controller="myLikesController as ml">
+        <form action="">
+        <button class="button button-clear" type="submit" ng-click="ml.getLikes()">Click Me</button>
+
+        <ul ng-repeat="liked in ml.currentLikes">
+
+                <li>{{liked.Artist_Name}}
+                </li>
+        </ul>
+        </form>
     </ion-content>
 </ion-view>

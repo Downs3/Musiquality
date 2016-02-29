@@ -1,0 +1,24 @@
+<ion-view title="Album Search">
+  <ion-content overflow-scroll="true" padding="true" class="has-header has-footer"
+               ng-controller="AlbumController as ac">
+    <form class="list">
+      <label class="item item-input">
+        <!--<span class="input-label">Input</span>-->
+        <input type="text" placeholder="Type Album Name" ng-model="ac.album">
+      </label>
+      <button class="button button-clear" type="submit" ng-click="ac.albumSearch(ac.album)"></button>
+      <ul ng-repeat="item in ac.results">
+        <li class="item item-thumbnail-left" ng-click="ac.currentArtist(item.id)">
+          <img ng-src="{{item.images[1].url}}"/>
+
+          <div>
+            <button class="buttonStyle" ui-sref="tabsController.artistHome"
+                    ng-click="tc.currentArtist(item.album.id)">Artist Page
+            </button>
+          </div>
+          <div class="rcArtistName">{{item.name}}</div>
+        </li>
+      </ul>
+    </form>
+  </ion-content>
+</ion-view>

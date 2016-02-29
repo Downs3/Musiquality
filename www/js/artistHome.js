@@ -22,9 +22,15 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.songPause = songPause;
   ah.tracks = tracks;
   ah.albums = albums;
+  ah.songLyrics = songLyrics;
+  ah.buyAlbum = buyAlbum;
+  ah.buyTrack = buyTrack;
+  ah.news = news;
+  ah.likesPage = likesPage;
   ah.audioObject = null;
   ah.bandClicked = false;
   ah.albumClicked = false;
+  ah.newsClicked = false;
 
 
   function tracks (artist) {
@@ -73,6 +79,29 @@ function ArtistHomeController($http, $filter, artistService) {
     });
   }
 
+  function songLyrics(artist, song){
+    window.open('http://search.azlyrics.com/search.php?q=' + artist + ' ' + song + '+')
+  }
+
+  function buyAlbum(artist, album){
+    window.open('https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + artist + ' ' + album)
+  }
+
+  function buyTrack(artist, track){
+    window.open('https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + artist + ' ' + track)
+  }
+
+  function news(artist){
+      // $http.get('https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exchars=175&titles=' + artist).then(function (response) {
+
+      //    ah.wikiResults = response.data;
+      //    console.log(ah.wikiResults);
+
+
+      //  });
+    ah.newsClicked = !ah.newsClicked;
+  }
+
   function lyricsPage(track) {
     window.open('http://search.azlyrics.com/search.php?q=' + track + '+' + ah.artist, '_blank', 'location=yes');
   }
@@ -92,5 +121,8 @@ function ArtistHomeController($http, $filter, artistService) {
 
   function songPause() {
     ah.audioObject.pause();
+  }
+  function likesPage() {
+    artistService.addLikes();
   }
 }

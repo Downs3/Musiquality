@@ -1,4 +1,4 @@
-<ion-view title="Artist Name Search">
+<ion-view title="Artist Search">
   <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="NameController as nc">
     <form class="list">
       <label class="item item-input">
@@ -9,13 +9,12 @@
       <ul ng-repeat="item in nc.results">
         <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome" ng-click="nc.currentArtist(item.name, item.images[0].url)">
           <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}"/>
+          <span class="rcArtistName">{{item.name}}</span><br/>
 
-          <br/>
-          <div>
-            {{"Artist: " + item.name}}</br>
 
             {{"Popularity: " + item.popularity}}</br>
-          </div>
+            {{"Genre: " + item.genres[0]}}
+
         </li>
       </ul>
     </form>

@@ -1,9 +1,9 @@
-<ion-view title="Song Title Name Search">
+<ion-view title="Track Search">
     <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="TitleController as tc">
         <form class="list">
             <label class="item item-input">
                 <!--<span class="input-label">Input</span>-->
-                <input type="text" placeholder="Type Song Title Name" ng-model="tc.song">
+                <input type="text" placeholder="Type Song Title" ng-model="tc.song">
 
             </label>
             <button class="button button-clear" type="submit" ng-click="tc.songTitleSearch(tc.song)"></button>
@@ -14,12 +14,12 @@
 
                     <button class="buttonStyle ion-play button button-small" ng-click="tc.playTrack(item.preview_url)"></button>
                     <button class="buttonStyle ion-stop button button-small" ng-click="tc.pauseTrack()"></button>
-                    <br/>
-                    <div>
-                    {{"Artist: " + item.artists[0].name}}</br>
 
-                    {{"Popularity: " + item.popularity}}</br>
-                    </div>
+                    <br/>
+                    <span class="rcArtistName">{{item.name}}</span><br/>
+
+                    {{"Artist: " + item.artists[0].name}}<br/>
+
                     <div class="item-button-right">
                     <button class="button item-button-right" ui-sref="tabsController.artistHome" ng-click="tc.currentArtist(item.album.id)">Artist Page</button>
                     </div>

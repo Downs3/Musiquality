@@ -5,7 +5,7 @@ var app = angular.module('feedback', []);
 
 app.controller('FeedbackController', FeedbackController);
 
-function FeedbackController($http) {
+function FeedbackController(artistService) {
     // controller data and functions
 
 
@@ -14,6 +14,7 @@ function FeedbackController($http) {
     fc.feedback = feedback;
     fc.messages = '';
     fc.name = '';
+    fc.username = artistService.login;
 
 
     function feedback() {
@@ -24,6 +25,7 @@ function FeedbackController($http) {
 
         var newPostRef = postsRef.push();
         newPostRef.set({
+            username: fc.username,
             Author: fc.name,
             Feedback: fc.messages
 
