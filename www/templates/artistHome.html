@@ -1,12 +1,12 @@
 <ion-view title="Artist Home">
   <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="ArtistHomeController as ah">
-      <button class="likeBtn button ion-thumbsup"> Like</button>
+      <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
     <form class="list">
       <h1 class="fullFont">{{ah.artist}}</h1>
       <img class="fullImage" src="{{ah.bandPic}}"/>
     </form>
 
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Band Tracks</ion-item>
+    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Tracks</ion-item>
     <div ng-show="ah.bandClicked">
      <ul ng-repeat="item in ah.trackResults">
        <li class="item item-thumbnail-left">
