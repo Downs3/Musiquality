@@ -162,7 +162,7 @@ angular.module('app.routes', [])
           controller: 'artistHomeCtrl',
           resolve: {
             artist: function ($http, artistService) {
-              if(artistService.id !== '') {
+              if(artistService.id !== '')
                 return $http.get('https://api.spotify.com/v1/albums/' + artistService.id)
                   .then(function (response) {
                     artistService.currentArtist = response.data.artists[0].name;
@@ -171,7 +171,7 @@ angular.module('app.routes', [])
                       artistService.bandPic = results3;
                     });
                   });
-              }
+
             }
           }
         }

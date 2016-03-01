@@ -5,7 +5,7 @@
 
         <ul ng-repeat="liked in ml.currentLikes">
 
-                <li>{{liked.Artist_Name}}
+                <li ui-sref="tabsController.artistHome" ng-click="ml.artistStuff(liked.id)">{{liked.Artist_Name}}
                 </li>
         </ul>
         </form>
