@@ -7,16 +7,17 @@ app.config(['$localStorageProvider',
         $localStorageProvider.setKeyPrefix('');
     }]);
 app.controller('MainController', MainController);
-MainController.$inject = ['$timeout', '$localStorage', 'artistService'];
-function MainController($timeout, $localStorage, artistService) {
+MainController.$inject = ['$timeout', '$localStorage', 'userService'];
+function MainController($timeout, $localStorage, userService) {
     // controller data and functions
     var vm = this;
     vm.facebookLogin = facebookLogin;
     vm.googleLogin = googleLogin;
+
     //vm.deleteFacebookData = deleteFacebookData;
-    vm.fbData = $localStorage['firebase:session::musiquality'];
+    //vm.fbData = $localStorage['firebase:session::musiquality'];
     // if facebook data is found in local storage, use it
-    vm.message = vm.fbData && vm.fbData.facebook ? "Logged in to Facebook." : "No Facebook data found.";
+    //vm.message = vm.fbData && vm.fbData.facebook ? "Logged in to Facebook." : "No Facebook data found.";
     // IMPORTANT: change to match the URL of your Firebase.
     var url = 'https://musiquality.firebaseio.com/';
 
@@ -31,11 +32,11 @@ function MainController($timeout, $localStorage, artistService) {
                 console.log('Logged in to Facebook');
                 vm.message = 'Logged in to Facebook.';
                 $timeout(function () { // invokes $scope.$apply()
-                    vm.fbData = authData;
+                    //vm.fbData = authData;
+                  userService.update();
                 });
                 vm.loggedIn = true;
 
-                artistService.login = authData.uid;
             }
 
         });
@@ -51,12 +52,10 @@ function MainController($timeout, $localStorage, artistService) {
                 console.log('Logged in to Google');
                 vm.message = 'Logged in to Google.';
                 $timeout(function () { // invokes $scope.$apply()
-                    vm.fbData = authData;
+                    //vm.fbData = authData;
+                  userService.update();
                 });
                 vm.loggedIn = true;
-
-                artistService.login = authData.uid;
-                console.log(artistService.login);
             }
         });
     }
