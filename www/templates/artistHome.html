@@ -1,16 +1,15 @@
-<ion-view title="Artist Home">
+<ion-view title="Artist Home" class="backGroundImage">
   <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="ArtistHomeController as ah">
-      <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
     <form class="list">
-      <h1 class="fullFont">{{ah.artist}}</h1>
+      <div class="fullFont item item-button-right button-large"><h1>{{ah.artist}}</h1>
+      <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
+      </div>
       <img class="fullImage" src="{{ah.bandPic}}"/>
     </form>
 
-<<<<<<< HEAD
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)">Artist Tracks</ion-item>
-=======
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Tracks</ion-item>
->>>>>>> master
+    <ion-item href="#" ng-click="ah.tracks(ah.artist)">
+    <button class="button button-icon icon ion-navicon"> Tracks</button>
+    </ion-item>
     <div ng-show="ah.bandClicked">
      <ul ng-repeat="item in ah.trackResults">
        <li class="item item-thumbnail-left">
@@ -35,8 +34,9 @@
      </ul>
     </div>
 
-
-    <ion-item href="#" ng-click="ah.albums(ah.artist)" >Albums</ion-item>
+    <ion-item href="#" ng-click="ah.albums(ah.artist)" >
+      <button class="button button-icon icon ion-navicon"> Albums</button>
+    </ion-item>
     <div ng-show="ah.albumClicked">
       <ul ng-repeat="item in ah.albumResults">
         <li class="item item-thumbnail-left">
@@ -55,8 +55,9 @@
       </ul>
     </div>
 
-
-    <ion-item href="#" ng-click="ah.aboutTheArtist()" >About the Artist</ion-item>
+    <ion-item href="#" ng-click="ah.aboutTheArtist()" >
+      <button class="button button-icon icon ion-navicon"> About the Artist</button>
+    </ion-item>
     <div class="item" ng-show="ah.newsClicked">
       <ul>
         <li>

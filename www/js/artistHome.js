@@ -27,11 +27,8 @@ function ArtistHomeController($http, $filter, artistService) {
   ah.buyTrack = buyTrack;
   ah.aboutTheArtist = aboutTheArtist;
   ah.news = news;
-<<<<<<< HEAD
   ah.wiki = wiki;
-=======
   ah.likesPage = likesPage;
->>>>>>> master
   ah.audioObject = null;
   ah.bandClicked = false;
   ah.albumClicked = false;

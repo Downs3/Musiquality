@@ -1,3 +1,17 @@
+.scroll-content {
+
+    background-image: url("http://www.robriemen.nl/assets/2015/06/945-450-Mass-840x450.jpg");
+    /*background-image: url("https://www.mykomms.com/external/grouplogo/uts-lv11-Zinal-av20150727015343-39532411937rfnZuj01W.jpg");*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.backGroundImage {
+    background-color: whitesmoke;
+}
+
+
 .rcImg {
     height: 100px;
 }

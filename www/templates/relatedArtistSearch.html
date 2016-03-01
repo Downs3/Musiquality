@@ -12,9 +12,10 @@
             <ul class="list" ng-repeat="artist in rc.artistArray">
                 <li class="item item-thumbnail-left" ui-sref="tabsController.artistHome" ng-click="rc.currentArtist(artist.name, artist.images[0].url)">
                     <img class="rcImg" ng-src="{{artist.images[1].url}}"/>
+                    <br> <br>
                     <span class="rcArtistName">{{artist.name}}</span> <br>
-                    {{"Popularity: " + artist.popularity}} <br>
-                    {{"Genre: " + artist.genres[0]}}
+                    {{"Popularity: " + artist.popularity}}
+                    <br> {{"Genre: " + artist.genres[0]}}
 
                     <div class="item-button-right">
                         <button class="item-button-right button smallText" >Artist Page</button>
