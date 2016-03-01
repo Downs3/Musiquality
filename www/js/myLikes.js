@@ -5,19 +5,26 @@ var app = angular.module('myLikes', []);
 
 app.controller('myLikesController', myLikesController);
 
-function myLikesController($http, artistService) {
+myLikesController.$inject = ['$http', 'userService','$scope'];
+
+function myLikesController($http, userService, $scope) {
 // controller data and functions
     var ml = this;
     ml.currentLikes = '';
     ml.getLikes = getLikes;
 
+  getLikes();
+  $scope.$on('$ionicView.beforeEnter', function() {
+    getLikes();
+  });
+
     function getLikes() {
 
-        //var ref = new Firebase("https://musiquality.firebaseio.com/users/" + artistService.login);
-        $http.get("https://musiquality.firebaseio.com/users/" + artistService.login + '.json').then(function(response){
+        $http.get("https://musiquality.firebaseio.com/users/" + userService.user.uid + '.json').then(function(response){
             ml.currentLikes = response.data;
         });
-        console.log(artistService.login);
+      console.log('getlikes');
+        console.log(userService.user.uid);
         console.log(ml.currentLikes);
 
 

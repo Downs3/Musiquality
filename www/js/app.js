@@ -16,6 +16,7 @@ angular.module('app', ['ionic',
   'songTitle',
   'relatedArtist',
   'artistHome',
+  'userService',
   'artistService',
   'feedback',
   'myLikes'
