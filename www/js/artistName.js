@@ -28,6 +28,7 @@ function NameController($http, artistService, $state) {
     artistService.bandPic = pic;
     artistService.id = '';
     $state.go('tabsController.artistHome');
+    console.log(id);
   }
 }
 

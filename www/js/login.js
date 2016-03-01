@@ -7,12 +7,13 @@ app.config(['$localStorageProvider',
         $localStorageProvider.setKeyPrefix('');
     }]);
 app.controller('MainController', MainController);
-MainController.$inject = ['$timeout', '$localStorage'];
-function MainController($timeout, $localStorage) {
+MainController.$inject = ['$timeout', '$localStorage', 'userService'];
+function MainController($timeout, $localStorage, userService) {
     // controller data and functions
     var vm = this;
     vm.facebookLogin = facebookLogin;
     vm.googleLogin = googleLogin;
+
     //vm.deleteFacebookData = deleteFacebookData;
     //vm.fbData = $localStorage['firebase:session::musiquality'];
     // if facebook data is found in local storage, use it
