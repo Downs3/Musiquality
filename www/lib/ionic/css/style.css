@@ -32,8 +32,6 @@ h4{
 
 .aboutText{
     text-align: center;
-<<<<<<< HEAD
-=======
 }
 #musicIcon{
     color: green;
@@ -59,12 +57,12 @@ h4{
 .likeBtn {
     left: 80%;
 }
-<<<<<<< HEAD
+
 
 
     #aboutTextTitle {
         font-family: Copperplate;
-        font-size: 3em;
+        font-size: 1.6em;
         line-height: 36px;
     }
 
@@ -72,18 +70,15 @@ h4{
 
     .aboutTextContent {
         font-family: AppleGothic;
-        font-size: 2em;
+        font-size: 1em;
         line-height: 26px;
     }
 
 
     #aboutTextCreatedBy {
         font-family: Copperplate;
-        font-size: 1.5em;
+        font-size: .95em;
         line-height: 26px;
     }
-=======
-#aboutTextCreatedBy{
-    font-size: 1.5em;
-}
->>>>>>> 48geoffbrown/master
+
+
