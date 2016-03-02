@@ -1,16 +1,14 @@
 <ion-view title="Artist Home">
   <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="ArtistHomeController as ah">
-<<<<<<< HEAD
-      <button class="likeBtn button ion-thumbsup"> Like</button>
-=======
+
       <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
->>>>>>> 48geoffbrown/master
+
     <form class="list">
-      <h1 class="fullFont">{{ah.artist}}</h1>
-      <img class="fullImage" src="{{ah.bandPic}}"/>
+      <h1 class="fullFont">{{ah.artistService.currentArtist}}</h1>
+      <img class="fullImage" src="{{ah.artistService.bandPic}}"/>
     </form>
 
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)" >Tracks</ion-item>
+    <ion-item href="#" ng-click="ah.tracks(ah.artistService.currentArtist)" >Tracks</ion-item>
     <div ng-show="ah.bandClicked">
      <ul ng-repeat="item in ah.trackResults">
        <li class="item item-thumbnail-left">
@@ -36,7 +34,7 @@
     </div>
 
 
-    <ion-item href="#" ng-click="ah.albums(ah.artist)" >Albums</ion-item>
+    <ion-item href="#" ng-click="ah.albums(ah.artistService.currentArtist)" >Albums</ion-item>
     <div ng-show="ah.albumClicked">
       <ul ng-repeat="item in ah.albumResults">
         <li class="item item-thumbnail-left">
@@ -44,7 +42,7 @@
 
 
           <div class="item-button-right">
-            <button class="button item-button-right" ng-click="ah.buyAlbum(ah.artist, item.name)">Buy</button>
+            <button class="button item-button-right" ng-click="ah.buyAlbum(ah.artistService.currentArtist, item.name)">Buy</button>
           </div>
           <div>
             <span class="rcArtistName"> {{"Album:"}} </span> </br> </br>
@@ -55,7 +53,7 @@
     </div>
 
 
-    <ion-item href="#" ng-click="ah.news(ah.artist)" >About the Artist</ion-item>
+    <ion-item href="#" ng-click="ah.news(ah.artistService.currentArtist)" >About the Artist</ion-item>
     <div ng-show="ah.newsClicked">
       <ul>
         <li class="item item-thumbnail-left">
