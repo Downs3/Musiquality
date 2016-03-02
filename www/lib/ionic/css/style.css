@@ -45,10 +45,6 @@ h4{
 }
 .aboutText{
     text-align: center;
-<<<<<<< HEAD
-=======
-
->>>>>>> 48geoffbrown/master
 }
 #musicIcon{
     color: green;
@@ -62,23 +58,13 @@ h4{
     left: 80%;
 
 }
-<<<<<<< HEAD
-.homeNote{
-    text-align: center;
-    font-size: xx-large;
-}
-.likeBtn {
-    left: 80%;
-}
 
 
-=======
->>>>>>> 48geoffbrown/master
 
     #aboutTextTitle {
         font-family: Copperplate;
-        font-size: 1.6em;
-        line-height: 36px;
+        font-size: 2em;
+        line-height: 24px;
     }
 
 
@@ -86,21 +72,18 @@ h4{
     .aboutTextContent {
         font-family: AppleGothic;
         font-size: 1em;
-        line-height: 26px;
+        line-height: 15px;
     }
 
 
     #aboutTextCreatedBy {
         font-family: Copperplate;
-        font-size: .95em;
-        line-height: 26px;
+        font-size: .75em;
+        line-height: 15px;
     }
 
 
-<<<<<<< HEAD
-=======
 
 .loginPage{
     text-align: center;
 }
->>>>>>> 48geoffbrown/master
