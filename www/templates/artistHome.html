@@ -1,101 +1,87 @@
 <ion-view title="Artist Home" class="backGroundImage">
-  <ion-content overflow-scroll="true" padding="true" class="has-header has-footer" ng-controller="ArtistHomeController as ah">
+    <ion-content overflow-scroll="true" padding="true" class="has-header has-footer"
+                 ng-controller="ArtistHomeController as ah">
 
-    <form class="list">
-      <div class="fullFont item item-button-right button-large"><h1>{{ah.artist}}</h1>
-      <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
-      </div>
-      <img class="fullImage" src="{{ah.bandPic}}"/>
-    </form>
+        <form class="list">
+            <div class="fullFont item item-button-right button-large"><h1>{{ah.artistService.currentArtist}}</h1>
+                <button class="likeBtn button ion-thumbsup" ng-click="ah.likesPage()"> Like</button>
+            </div>
+            <img class="fullImage" src="{{ah.artistService.bandPic}}"/>
+        </form>
 
-    <ion-item href="#" ng-click="ah.tracks(ah.artist)">
-    <button class="button button-icon icon ion-navicon"> Tracks</button>
-    </ion-item>
-    <div ng-show="ah.bandClicked">
-     <ul ng-repeat="item in ah.trackResults">
-       <li class="item item-thumbnail-left">
+        <ion-item href="#" ng-click="ah.tracks(ah.artistService.currentArtist)">
+            <button class="button button-icon icon ion-navicon"> Tracks</button>
+        </ion-item>
 
-         <img class="rcImg" class="cover" ng-src="{{item.album.images[1].url}}"/>
+        <div ng-show="ah.bandClicked">
+            <ul ng-repeat="item in ah.trackResults">
+                <li class="item item-thumbnail-left">
 
-         <button class="buttonStyle ion-play button button-small" ng-click="ah.songPlay(item.preview_url)"></button>
-         <button class="buttonStyle ion-stop button button-small" ng-click="ah.songPause()"></button>
-         </br>
-         <div>
-           {{"Track: " + item.name}} </br>
-           {{"Popularity: " + item.popularity}} </br>
-         </div>
+                    <img class="rcImg" class="cover" ng-src="{{item.album.images[1].url}}"/>
 
-         <div class="item-button-right">
-           <div class="buttons">
-            <button class="button item-button-right button-small" ng-click="ah.songLyrics(ah.artist, item.name)">Lyrics</button> <br>
-            <button class="button item-button-right button-small" ng-click="ah.buyTrack(ah.artist, item.name)">Buy</button>
-           </div>
-         </div>
-       </li>
-     </ul>
-    </div>
+                    <button class="buttonStyle ion-play button button-small"
+                            ng-click="ah.songPlay(item.preview_url)"></button>
+                    <button class="buttonStyle ion-stop button button-small" ng-click="ah.songPause()"></button>
+                    </br>
+                    <div>
+                        {{"Track: " + item.name}} </br>
+                        {{"Popularity: " + item.popularity}} </br>
+                    </div>
 
-    <ion-item href="#" ng-click="ah.albums(ah.artist)" >
-      <button class="button button-icon icon ion-navicon"> Albums</button>
-    </ion-item>
-    <div ng-show="ah.albumClicked">
-      <ul ng-repeat="item in ah.albumResults">
-        <li class="item item-thumbnail-left">
-          <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}"/>
+                    <div class="item-button-right">
+                        <div class="buttons">
+                            <button class="button item-button-right button-small"
+                                    ng-click="ah.songLyrics(ah.artist, item.name)">Lyrics
+                            </button>
+                            <br>
+                            <button class="button item-button-right button-small"
+                                    ng-click="ah.buyTrack(ah.artist, item.name)">Buy
+                            </button>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <ion-item href="#" ng-click="ah.albums(ah.artistService.currentArtist)">
+            <button class="button button-icon icon ion-navicon"> Albums</button>
+        </ion-item>
+
+        <div ng-show="ah.albumClicked">
+            <ul ng-repeat="item in ah.albumResults">
+                <li class="item item-thumbnail-left">
+                    <img class="rcImg" class="cover" ng-src="{{item.images[1].url}}"/>
 
 
-          <div class="item-button-right">
-            <button class="button item-button-right" ng-click="ah.buyAlbum(ah.artist, item.name)">Buy</button>
-          </div>
-          <div>
-            </br> </br>
-            <span class="rcArtistName">{{ item.name }}</span>
+                    <div class="item-button-right">
+                        <button class="button item-button-right"
+                                ng-click="ah.buyAlbum(ah.artistService.currentArtist, item.name)">Buy
+                        </button>
+                    </div>
+                    <div>
+                        </br> </br>
+                        <span class="rcArtistName">{{ item.name }}</span>
 
-          </div>
-        </li>
-      </ul>
-    </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
 
-    <ion-item href="#" ng-click="ah.aboutTheArtist()" >
-      <button class="button button-icon icon ion-navicon"> About the Artist</button>
-    </ion-item>
-    <div class="item" ng-show="ah.newsClicked">
-      <ul>
-        <li>
-          <button class="button" ng-click="ah.wiki(ah.artist)">Go to Wiki</button> <br> <br>
-          <button class="button" ng-click="ah.news(ah.artist)">Go to News</button>
-        </li>
-      </ul>
-    </div>
+        <ion-item href="#" ng-click="ah.aboutTheArtist()">
+            <button class="button button-icon icon ion-navicon"> About the Artist</button>
+        </ion-item>
+        <div class="item" ng-show="ah.newsClicked">
 
-    <!--<h3 ng-click="ah.artistSearch(ah.artist)">Get Stuff</h3>-->
+            <ion-item href="#" ng-click="ah.news(ah.artistService.currentArtist)">About the Artist</ion-item>
+            <div ng-show="ah.newsClicked">
 
-    <!--<h2 ng-click="ah.bandTracks()">BAND TRACKS</h2>-->
-    <!--<div ng-show="ah.bandClicked">-->
-     <!--<ion-list>-->
-       <!--<ion-item href="#" ng-click="ah.songPlay(ah.track1)">{{ah.track1Name}}</ion-item>-->
-     <!--</ion-list>-->
-     <!--<button ng-click="ah.songPause()">Stop Track</button>-->
-     <!--<button ng-click="ah.lyricsPage(ah.track1Name)">Track Lyrics</button>-->
-     <!--<button ng-click="ah.amazonPage(ah.track1Name)">Amazon</button>-->
-     <!--<ion-list>-->
-       <!--<ion-item href="#" ng-click="ah.songPlay(ah.track2)">{{ah.track2Name}}</ion-item>-->
-     <!--</ion-list>-->
-     <!--<button ng-click="ah.songPause()">Stop Track</button>-->
-     <!--<button ng-click="ah.lyricsPage(ah.track2Name)">Track Lyrics</button>-->
-     <!--<button ng-click="ah.amazonPage(ah.track2Name)">Amazon</button>-->
-     <!--<ion-list>-->
-       <!--<ion-item href="#" ng-click="ah.songPlay(ah.track3)">{{ah.track3Name}}</ion-item>-->
-     <!--</ion-list>-->
-     <!--<button ng-click="ah.songPause()">Stop Track</button>-->
-     <!--<button ng-click="ah.lyricsPage(ah.track3Name)">Track Lyrics</button>-->
-     <!--<button ng-click="ah.amazonPage(ah.track3Name)">Amazon</button>-->
-    <!--</div>-->
-    <!--<h2>BAND INFO</h2>-->
-    <!--<ion-list>-->
-      <!--<ion-item href="#" ng-click="ah.outsidePage(ah.news)">News</ion-item>-->
-      <!--<ion-item href="#" ng-click="ah.outsidePage(ah.bio)">Wiki</ion-item>-->
-    <!--</ion-list>-->
-
-  </ion-content>
+                <ul>
+                    <li>
+                        <button class="button" ng-click="ah.wiki(ah.artistService.currentArtist)">Go to Wiki</button>
+                        <br> <br>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </ion-content>
 </ion-view>

@@ -42,7 +42,7 @@ function RelatedArtistController($http, artistService, $state) {
     artistService.currentArtist = name;
     artistService.bandPic = pic;
     artistService.id = '';
-    $state.go('tabsController.artistHome');
+    //$state.go('tabsController.artistHome');
   }
 
 }

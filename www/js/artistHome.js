@@ -9,8 +9,9 @@ app.controller('ArtistHomeController', ArtistHomeController);
 
 function ArtistHomeController($http, $filter, artistService) {
   var ah = this;
-  ah.artist = artistService.currentArtist;
-  ah.bandPic = artistService.bandPic;
+  ah.artistService = artistService;
+  //ah.artist = artistService.currentArtist;
+  //ah.bandPic = artistService.bandPic;
   ah.news = '';
   ah.bio = '';
   ah.trackResults = '';
@@ -82,15 +83,15 @@ function ArtistHomeController($http, $filter, artistService) {
   }
 
   function songLyrics(artist, song){
-    window.open('http://search.azlyrics.com/search.php?q=' + artist + ' ' + song + '+')
+    window.open('http://search.azlyrics.com/search.php?q=' + artist + ' ' + song + '+');
   }
 
   function buyAlbum(artist, album){
-    window.open('https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + artist + ' ' + album)
+    window.open('https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + artist + ' ' + album);
   }
 
   function buyTrack(artist, track){
-    window.open('https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + artist + ' ' + track)
+    window.open('https://www.amazon.com/s/ref=nb_sb_noss_1?url=search-alias%3Ddigital-music&field-keywords=' + artist + ' ' + track);
   }
 
   function aboutTheArtist(){

@@ -43,7 +43,6 @@ h4{
     color: green;
     text-align: center;
 }
-
 .aboutText{
     text-align: center;
 
@@ -59,21 +58,7 @@ h4{
 .likeBtn{
     left: 80%;
 
->>>>>>> 48geoffbrown/master
 }
-#musicIcon{
-    color: green;
-    text-align: center;
-}
-.homeNote{
-    text-align: center;
-    font-size: xx-large;
-}
-.likeBtn {
-    left: 80%;
-}
-
-
 
     #aboutTextTitle {
         font-family: Copperplate;
@@ -96,7 +81,8 @@ h4{
         line-height: 26px;
     }
 
-#aboutTextCreatedBy{
-    font-size: 1.5em;
-}
 
+
+.loginPage{
+    text-align: center;
+}
