@@ -1,3 +1,17 @@
+.scroll-content {
+
+    background-image: url("http://www.robriemen.nl/assets/2015/06/945-450-Mass-840x450.jpg");
+    /*background-image: url("https://www.mykomms.com/external/grouplogo/uts-lv11-Zinal-av20150727015343-39532411937rfnZuj01W.jpg");*/
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.backGroundImage {
+    background-color: whitesmoke;
+}
+
+
 .rcImg {
     height: 100px;
 }
@@ -29,9 +43,12 @@ h4{
     color: green;
     text-align: center;
 }
-
 .aboutText{
     text-align: center;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48geoffbrown/master
 }
 #musicIcon{
     color: green;
@@ -44,12 +61,8 @@ h4{
 .likeBtn{
     left: 80%;
 
->>>>>>> 48geoffbrown/master
 }
-#musicIcon{
-    color: green;
-    text-align: center;
-}
+<<<<<<< HEAD
 .homeNote{
     text-align: center;
     font-size: xx-large;
@@ -59,6 +72,8 @@ h4{
 }
 
 
+=======
+>>>>>>> 48geoffbrown/master
 
     #aboutTextTitle {
         font-family: Copperplate;
@@ -82,3 +97,10 @@ h4{
     }
 
 
+<<<<<<< HEAD
+=======
+
+.loginPage{
+    text-align: center;
+}
+>>>>>>> 48geoffbrown/master
