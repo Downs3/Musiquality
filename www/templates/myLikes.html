@@ -15,7 +15,7 @@
       <br/>
 
       <ul ng-repeat="liked in ml.currentLikes">
-        <li ng-click="ml.artistSearch(liked.Artist_Name)">{{liked.Artist_Name}}</li>
+        <li class="button button-block button-stable" ng-click="ml.artistSearch(liked.Artist_Name)">{{liked.Artist_Name}}</li>
       </ul>
     </form>
   </ion-content>
