@@ -1,5 +1,5 @@
 <ion-view title="Feedback"  ng-init="emails = [{ from: 'John', subject: 'I love angular', date: 'Jan 1' }]">
-    <ion-content overflow-scroll="true" padding="true" class="has-header"  ng-controller="FeedbackController as fc">
+    <ion-content overflow-scroll="true" padding="true" class="headerCenter has-header"  ng-controller="FeedbackController as fc">
         <form class="list">
             <label class="item">
                 <input ng-click="fc.hideAlert()" class="feedbackInput" type="text" placeholder="Enter your email" ng-model="fc.name">
@@ -12,7 +12,11 @@
 
         </form>
         <button class="button button-dark button-block " ng-click="fc.feedback()">Send</button>
+<<<<<<< HEAD
         <div ng-show="fc.messageSent">
+=======
+        <div class="feedbackSent" ng-show="fc.messageSent">
+>>>>>>> 48geoffbrown/master
             <h4>Your feedback has been sent.</h4>
             <h4>Thank You!!</h4>
             <h3 class="ion-music-note" id="musicIcon"></h3>

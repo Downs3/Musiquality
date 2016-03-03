@@ -40,14 +40,18 @@
     width: 100%;
 }
 h4{
-    color: green;
+    color: cornflowerblue;
     text-align: center;
 }
 .aboutText{
     text-align: center;
+<<<<<<< HEAD
+=======
+
+>>>>>>> 48geoffbrown/master
 }
 #musicIcon{
-    color: green;
+    color: cornflowerblue;
     text-align: center;
 }
 .homeNote{
@@ -58,6 +62,7 @@ h4{
     left: 80%;
 
 }
+<<<<<<< HEAD
 
 
 
@@ -66,9 +71,24 @@ h4{
         font-size: 2em;
         line-height: 24px;
     }
+=======
+#aboutTextTitle {
+    font-family: Copperplate;
+    font-size: 2em;
+    line-height: 24px;
+}
 
 
+>>>>>>> 48geoffbrown/master
 
+.aboutTextContent {
+    font-family: AppleGothic;
+    font-size: 1em;
+    line-height: 15px;
+}
+
+
+<<<<<<< HEAD
     .aboutTextContent {
         font-family: AppleGothic;
         font-size: 1em;
@@ -86,4 +106,26 @@ h4{
 
 .loginPage{
     text-align: center;
+=======
+#aboutTextCreatedBy {
+    font-family: Copperplate;
+    font-size: .75em;
+    line-height: 15px;
+}
+
+
+
+.loginPage{
+    text-align: center;
+}
+.feedbackSent{
+    background-color: black;
+    border-radius: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 10px;
+}
+.headerCenter{
+    text-align: center;
+>>>>>>> 48geoffbrown/master
 }
